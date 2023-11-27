@@ -5,7 +5,7 @@ const expressConfig = require('./config/express');
 const dbConnect = require('./config/mongoose');
 const { port } = require('./config/constants');
 
-const routes = require('./router');
+const routes = require('./routes');
 
 const app = express();
 
