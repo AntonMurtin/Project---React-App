@@ -8,7 +8,7 @@ import { Register } from './components/Register/Register';
 import { Login } from './components/Login/login';
 import { Logout } from './components/Logout/Logout';
 import { Shop } from './components/Shop/Shop';
-import { Warmtepomp } from './components/Shop/Warmtepomp/Warmtepomp';
+import { Waterpomp } from './components/Shop/Waterpomp/Waterpomp';
 import { Create } from './components/Create/Create';
 
 
@@ -21,7 +21,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/shop' element={<Shop />} />
-            <Route path='/shop/pomp' element={<Warmtepomp />} />
+            <Route path='/shop/pomp' element={<Waterpomp />} />
             <Route path='/create' element={<Create />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />

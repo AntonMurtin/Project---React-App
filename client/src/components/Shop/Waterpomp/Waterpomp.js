@@ -1,6 +1,6 @@
 
 
-export const Warmtepomp = () => {
+export const Waterpomp = () => {
 
     return (
         <section class="container">

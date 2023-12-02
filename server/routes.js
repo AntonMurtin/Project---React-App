@@ -4,7 +4,7 @@ const userController=require('./controllers/userController')
 const cardController=require('./controllers/cardsController')
 
 router.use('/users',userController);
-router.use('/cards',cardController)
+router.use('/products',cardController)
 
 
 module.exports = router

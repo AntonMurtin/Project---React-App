@@ -1,11 +1,11 @@
-const Card=require('../models/Card');
+const Products=require('../models/Products');
 
-exports.create=(cardData)=> Card.create(cardData);
+exports.create=(type,cardData)=> Products[type].create(cardData);
 
-exports.getAll=()=>Card.find;
+exports.getAll=(type)=>Products[type].find;
 
-exports.getById=(cardId)=> Card.findById(cardId);
+exports.getById=(type,cardId)=> Products[type].findById(cardId);
 
-exports.update=(cardId, cardData)=> Card.findByIdAndUpdate(cardId, cardData);
+exports.update=(type,cardId, cardData)=> Products[type].findByIdAndUpdate(cardId, cardData);
 
-exports.delete=(cardId)=>Card.findByIdAndDelete(cardId);
+exports.delete=(type,cardId)=>Products[type].findByIdAndDelete(cardId);

@@ -16,8 +16,8 @@ export const Shop = () => {
                     </Link>
                     <div className="card__info">
 
-                        <h3 className="card__title">Warmtepomp Installatie</h3>
-                        <span className="card__by">by <a href="#" className="card__author" title="author">John Doe</a></span>
+                        <h3 className="card__title">WATERPOMP</h3>
+                        {/* <span className="card__by">by <a href="#" className="card__author" title="author">John Doe</a></span> */}
                     </div>
                 </article>
 
@@ -30,8 +30,8 @@ export const Shop = () => {
                     </a>
                     <div className="card__info">
                        
-                        <h3 className="card__title">Discover the sea</h3>
-                        <span className="card__by">by <a href="#" className="card__author" title="author">John Doe</a></span>
+                        <h3 className="card__title">IRRIGATION SYSTEMS</h3>
+                        {/* <span className="card__by">by <a href="#" className="card__author" title="author">John Doe</a></span> */}
                     </div>
                 </article>
 
@@ -44,8 +44,8 @@ export const Shop = () => {
                     </a>
                     <div className="card__info">
                       
-                        <h3 className="card__title">Crisp Spanish tortilla Matzo brei</h3>
-                        <span className="card__by">by <a href="#" className="card__author" title="author">Celeste Mills</a></span>
+                        <h3 className="card__title">PARTS</h3>
+                        {/* <span className="card__by">by <a href="#" className="card__author" title="author">Celeste Mills</a></span> */}
                     </div>
                 </article>
 
@@ -60,8 +60,8 @@ export const Shop = () => {
                     </a>
                     <div className="card__info">
                         
-                        <h3 className="card__title">Crisp Spanish tortilla Matzo brei</h3>
-                        <span className="card__by">by <a href="#" className="card__author" title="author">Celeste Mills</a></span>
+                        <h3 className="card__title">WATER TANK</h3>
+                        {/* <span className="card__by">by <a href="#" className="card__author" title="author">Celeste Mills</a></span> */}
                     </div>
                 </article>
 
@@ -74,8 +74,8 @@ export const Shop = () => {
                     </a>
                     <div className="card__info">
                        
-                        <h3 className="card__title">Discover the sea</h3>
-                        <span className="card__by">by <a href="#" className="card__author" title="author">John Doe</a></span>
+                        <h3 className="card__title">DRAINAGE SYSTEM</h3>
+                        {/* <span className="card__by">by <a href="#" className="card__author" title="author">John Doe</a></span> */}
                     </div>
                 </article>
                 <article className="card card--6">
@@ -86,8 +86,8 @@ export const Shop = () => {
                     </a>
                     <div className="card__info">
                       
-                        <h3 className="card__title">Crisp Spanish tortilla Matzo brei</h3>
-                        <span className="card__by">by <a href="#" className="card__author" title="author">Celeste Mills</a></span>
+                        <h3 className="card__title">TOOLS</h3>
+                        {/* <span className="card__by">by <a href="#" className="card__author" title="author">Celeste Mills</a></span> */}
                     </div>
                 </article>
 

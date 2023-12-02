@@ -12,13 +12,13 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.post('/', async (req, res) => {
+router.post('/create', async (req, res) => {
+        const {type,...data}=req.body;
+        console.log(type);
+        console.log(data);
 
     try {
-        const card = await cardManager.create({
-            ...req.body,
-            _ownerId: req.user._id,
-        });
+        const card = await cardManager.create();
         res.json(card)
     } catch (error) {
         res.status(400).json({
