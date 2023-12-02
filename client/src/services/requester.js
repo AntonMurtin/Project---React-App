@@ -1,16 +1,28 @@
-const host = process.env.NODE_ENV ==='development'
-? 'http://localhost:3030'
-: 'http://localhost:3031';
+// const host = process.env.NODE_ENV ==='development'
+// ? 'http://localhost:3030'
+// : 'http://localhost:3031';
+// const host='http://localhost:3030'
+
 
 const requester = async (method, url, data) => {
-    const options = {
-        method,
-        headers: {}
+    const options = {};
+
+    if (method !== 'GET') {
+        options.method = method;
+
+        if (data) {
+            options.headers = {
+                'content-type': 'application/json',
+            };
+
+            options.body = JSON.stringify(data);
+        }
     }
-    
-    const userData =localStorage.getItem('auth');
-    if (userData) {
-        const auth = JSON.parse(userData);
+
+    const serializedAuth = localStorage.getItem('auth');
+    if (serializedAuth) {
+        const auth = JSON.parse(serializedAuth);
+        
         if (auth.accessToken) {
             options.headers = {
                 ...options.headers,
@@ -18,28 +30,21 @@ const requester = async (method, url, data) => {
             };
         }
     }
-    if (data !== undefined) {
-        options.headers['Content-Type'] = 'aplication/json';
-        options.body = JSON.stringify(data);
+
+    const response = await fetch(url, options);
+
+    if (response.status === 204) {
+        return {};
     }
 
-    try {
-        const response = await fetch(host + url, options);
-        let result={};
-        if (response.status !== 204) {
-            result = await response.json()
-        }
-        if (!response.ok ) {
-            
-            const error = result;
-            throw error
-        }
-        return result
-    } catch (err) {
-        alert(err.message);
-        throw err
+    const result = await response.json();
+
+    if (!response.ok) {
+        throw result;
     }
-}
+
+    return result;
+};
 
 export const requestFactory = () => {
     return {

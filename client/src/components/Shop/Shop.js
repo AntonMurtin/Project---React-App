@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-export const Catalog = () => {
+export const Shop = () => {
 
     return (
         <section className="catalog">
@@ -11,12 +11,12 @@ export const Catalog = () => {
                 <article className="card card--1">
 
                     <div className="card__img"></div>
-                    <Link href="catalog/" className="card_link">
+                    <Link to="/shop/pomp" className="card_link">
                         <div className="card__img--hover"></div>
                     </Link>
                     <div className="card__info">
 
-                        <h3 className="card__title">Crisp Spanish tortilla Matzo brei</h3>
+                        <h3 className="card__title">Warmtepomp Installatie</h3>
                         <span className="card__by">by <a href="#" className="card__author" title="author">John Doe</a></span>
                     </div>
                 </article>

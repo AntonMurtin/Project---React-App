@@ -2,17 +2,22 @@ import { createContext, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
-import {authServiceFactoty} from '../services/authService';
+import { authServiceFactoty } from '../services/authService';
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({
     children,
 }) => {
+    const admin = 'antonmurtin@gmail.com'
+
     const [auth, setAuth] = useLocalStorage('auth', {});
+
+
     const navigate = useNavigate();
 
     const authService = authServiceFactoty(auth.accessToken)
+
 
     const onLoginSubmit = async (data) => {
         try {
@@ -20,44 +25,46 @@ export const AuthProvider = ({
 
             setAuth(result);
 
-            navigate('/catalog');
+            navigate('/');
         } catch (error) {
-            console.log('There is a problem');
+            console.log(error.message);
         }
     };
 
     const onRegisterSubmit = async (values) => {
-        const { confirmPassword, ...registerData } = values;
-        if (confirmPassword !== registerData.password) {
-            return;
-        }
 
         try {
-            const result = await authService.register(registerData);
+            const result = await authService.register(values);
+            console.log(result);
+
 
             setAuth(result);
 
-            navigate('/catalog');
+            navigate('/');
         } catch (error) {
             console.log('There is a problem');
         }
     };
 
     const onLogout = async () => {
-        await authService.logout();
+        //  authService.logout();
 
         setAuth({});
+        navigate('/');
     };
 
     const contextValues = {
         onLoginSubmit,
         onRegisterSubmit,
         onLogout,
+        username: auth.username,
         userId: auth._id,
         token: auth.accessToken,
         userEmail: auth.email,
         isAuthenticated: !!auth.accessToken,
+        isAdmin: admin === auth.email,
     };
+
 
     return (
         <>

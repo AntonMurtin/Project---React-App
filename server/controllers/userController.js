@@ -3,9 +3,9 @@ const userManager=require('../manager/userManager')
 
 
 router.post('/register', async(req,res)=>{
-    const {email,password}=req.body;
+    
     try {
-       const result= await userManager.register({email,password});
+       const result= await userManager.register(req.body);
 
         res.json(result)
     } catch (error) {
@@ -16,6 +16,7 @@ router.post('/register', async(req,res)=>{
 });
 
 router.post('/login',async (req,res)=>{
+    console.log(req.body);
     try {
          const result=await userManager.login(req.body);
          res.json(result);

@@ -1,9 +1,10 @@
 import { requestFactory } from "./requester";
 
-const url = '/users';
 
-export const authServiceFactoty = () => {
-    const request = requestFactory()
+const url = 'http://localhost:3030/users';
+
+export const authServiceFactoty = (token) => {
+    const request = requestFactory(token)
     return {
         login: (data) => request.post(`${url}/login`, data),
         register: (data) => request.post(`${url}/register`, data),
