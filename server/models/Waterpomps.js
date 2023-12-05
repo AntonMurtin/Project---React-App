@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const WaterpompShema = new mongoose.Schema({
+    type: {
+        type: String,
+        required: [true, 'Type is required!'],
+
+    },
     title: {
         type: String,
         required: [true, 'Name is required!'],
@@ -15,13 +20,13 @@ const WaterpompShema = new mongoose.Schema({
         type: Number,
         required: [true, 'Price is required!'],
         min: [1, 'Price must min 1 and max 100'],
-        max: [100, 'Price must min 1 and max 100']
+        // max: [100, 'Price must min 1 and max 100']
     },
     description: {
         type: String,
         required: [true, 'Description is required!'],
         minLength: [5, 'Description shoud be at least 5 characters'],
-        maxLength: [50, 'Description shoud be max 50 characters']
+         maxLength: [505, 'Description shoud be max 50 characters']
     },
     buy: [{
         user: {
@@ -37,6 +42,6 @@ const WaterpompShema = new mongoose.Schema({
     }],
 });
 
-const Waterpomps = mongoose.model('Waterpomp', WaterpompShema);
+const Waterpomp = mongoose.model('Waterpomp', WaterpompShema);
 
-module.exports = Waterpomps;
+module.exports = Waterpomp;

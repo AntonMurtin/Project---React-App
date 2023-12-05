@@ -3,7 +3,7 @@
   .catalog {
 
     width:auto;
-    height: 450px;
+    height: 300px;
   }
 
   
@@ -26,17 +26,17 @@
   }
   
   .card--2 .card__img, .card--2 .card__img--hover {
-      background-image: url('../images/sprinkler-system-too-much-pressure.jpg');
+      background-image: url('../images/RAZ.jpeg');
   }
   .card--3 .card__img, .card--3 .card__img--hover {
     background-image: url('../images/220210082925warer.jpg');
 }
 .card--4 .card__img, .card--4 .card__img--hover {
-  background-image: url('../images/rez.png');
+  background-image: url('../images/TANKS2.webp');
 }
 
 .card--5 .card__img, .card--5 .card__img--hover {
-  background-image: url('../images/drenaj.jpg');
+  background-image: url('../images/trubi.jpg');
 }
 .card--6 .card__img, .card--6 .card__img--hover {
 background-image: url('../images/tools.jpg');

@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const TankShema = new mongoose.Schema({
+    type:{
+        type: String,
+        required: [true, 'Type is required!'],
+        
+    },
     title: {
         type: String,
         required: [true, 'Name is required!'],

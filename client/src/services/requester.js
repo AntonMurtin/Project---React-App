@@ -16,12 +16,14 @@ const requester = async (method, url, data) => {
             };
 
             options.body = JSON.stringify(data);
+          
         }
     }
 
     const serializedAuth = localStorage.getItem('auth');
     if (serializedAuth) {
         const auth = JSON.parse(serializedAuth);
+        
         
         if (auth.accessToken) {
             options.headers = {
@@ -30,7 +32,7 @@ const requester = async (method, url, data) => {
             };
         }
     }
-
+   
     const response = await fetch(url, options);
 
     if (response.status === 204) {
@@ -38,7 +40,6 @@ const requester = async (method, url, data) => {
     }
 
     const result = await response.json();
-
     if (!response.ok) {
         throw result;
     }

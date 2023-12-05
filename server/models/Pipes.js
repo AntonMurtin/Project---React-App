@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
-const DrainageShema = new mongoose.Schema({
+const PipesShema = new mongoose.Schema({
+    type:{
+        type: String,
+        required: [true, 'Type is required!'],
+        
+    },
     title: {
         type: String,
         required: [true, 'Name is required!'],
@@ -37,6 +42,6 @@ const DrainageShema = new mongoose.Schema({
     }],
 });
 
-const DrainageElements = mongoose.model('Drainage', DrainageShema);
+const Pipes = mongoose.model('Pipes', PipesShema);
 
-module.exports = DrainageElements;
+module.exports = Pipes;

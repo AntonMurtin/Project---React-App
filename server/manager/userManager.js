@@ -26,7 +26,7 @@ exports.register = async (userData) => {
 };
 
 exports.login = async (userData) => {
-    console.log(userData.email);
+    
     const user = await User.findOne({ email: userData.email });
 
     if (!user) {

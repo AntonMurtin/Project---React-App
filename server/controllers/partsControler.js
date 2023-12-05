@@ -1,10 +1,11 @@
 const router = require('express').Router();
-const cardManager = require('../manager/cardManager');
+const partsManager = require('../manager/partsManager');
 
 router.get('/', async (req, res) => {
     try {
-        const cards = await cardManager.getAll();
-        res.json(cards)
+        const cards = await partsManager.getAll()
+       
+         res.json(cards)
     } catch (error) {
         res.status(400).json({
             message: error.message
@@ -13,15 +14,16 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/create', async (req, res) => {
-        const {type,...data}=req.body;
-        console.log(type);
-        console.log(data);
+       console.log('yes');
+        console.log(req.body);
 
     try {
-        const card = await cardManager.create();
+        const card = await partsManager.create(req.body);
+        console.log(card);
         res.json(card)
     } catch (error) {
-        res.status(400).json({
+        console.log(error.message);
+        res.json({
             message: error.message
         });
     }
@@ -30,7 +32,7 @@ router.post('/create', async (req, res) => {
 router.get('/:cardId', async (req, res) => {
     const cardId = req.params.cardId
     try {
-        const card = await cardManager.getById(cardId)
+        const card = await partsManager.getById(cardId)
 
         res.json(card)
     } catch (error) {
@@ -45,7 +47,7 @@ router.put('/:cardId',async(req,res)=>{
     const cardData=req.body
 
     try {
-        const card=await cardManager.update(cardId,cardData);
+        const card=await partsManager.update(cardId,cardData);
 
         res.json(card);
     } catch (error) {
@@ -61,7 +63,7 @@ router.delete('/:cardId',async(req,res)=>{
    
 
     try {
-        await cardManager.update(cardId);
+        await partsManager.update(cardId);
 
         res.status(204).end();
     } catch (error) {
