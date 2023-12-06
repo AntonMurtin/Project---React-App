@@ -4,10 +4,11 @@
   body {
     height:10%;
     background-image: url('../images/fon.jpg');
-    background-attachment: fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+  
+    /* background-attachment: fixed; */
+    /* -webkit-background-size: cover; */
+    /* -moz-background-size: cover;
+    -o-background-size: cover; */
     background-size: cover;
   }
   nav {

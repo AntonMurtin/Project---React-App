@@ -25,7 +25,7 @@ export const Shop = () => {
                 <article className="card card--2">
 
                     <div className="card__img"></div>
-                    <a href="/shop/iriigationSystems" className="card_link">
+                    <a href="/shop/systems" className="card_link">
                         <div className="card__img--hover"></div>
                     </a>
                     <div className="card__info">
@@ -55,12 +55,12 @@ export const Shop = () => {
                 <article className="card card--4">
 
                     <div className="card__img"></div>
-                    <a href="/shop/tanks" className="card_link">
+                    <a href="/shop/machines" className="card_link">
                         <div className="card__img--hover"></div>
                     </a>
                     <div className="card__info">
                         
-                        <h3 className="card__title">WATER TANK</h3>
+                        <h3 className="card__title">POWER MACHINES</h3>
                         {/* <span className="card__by">by <a href="#" className="card__author" title="author">Celeste Mills</a></span> */}
                     </div>
                 </article>

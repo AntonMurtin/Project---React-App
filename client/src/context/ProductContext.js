@@ -11,35 +11,59 @@ export const ProductProvider = ({
 }) => {
 
     const navigate = useNavigate()
-    const [parts, setParts] = useState([]);
-    const [tools, setTools] = useState([]);
+
     const [waterpomps, setWaterpomps] = useState([]);
-    
-    const productsServise=productsServiceFactory()
+    const [systems, setSystems] = useState([]);
+    const [parts, setParts] = useState([]);
+    const [machines, setMachines] = useState([]);
+    const [pipes, setPipes] = useState([]);
+    const [tools, setTools] = useState([]);
+
+    const productsServise = productsServiceFactory()
 
     useEffect(() => {
         Promise.all([
-            productsServise.getAll('parts'),
-            productsServise.getAll('tools'),
             productsServise.getAll('waterpomps'),
+            productsServise.getAll('systems'),
+            productsServise.getAll('parts'),
+            productsServise.getAll('machines'),
+            productsServise.getAll('pipes'),
+            productsServise.getAll('tools'),
 
-        ]).then(([partsData,toolsData,waterpompsData]) => {
-                setParts(partsData);
-                setTools(toolsData);
+        ]).then(([
+            waterpompsData,
+            systemsData,
+            partsData,
+            machinesData,
+            pipesData,
+            toolsData,
+        ]) => {
                 setWaterpomps(waterpompsData);
-            })
+                setSystems(systemsData);
+                setParts(partsData);
+                setMachines(machinesData);
+                setPipes(pipesData);
+                setTools(toolsData);
+        })
     }, []);
 
+    const setValue = {
+        waterpomps: setWaterpomps,
+        systems: setSystems,
+        parts: setParts,
+        machines:setMachines,
+        pipes:setPipes,
+        tools:setTools
+    }
 
 
     const onCreateProduct = async (data) => {
-        const type=data.type;
+        const type = data.type;
         try {
-            
-            // const newProduct = await productsServise.create(type,data);
-           
-    
-            // setParts(state => [...state, newProduct]);
+
+            const newProduct = await productsServise.create(type, data);
+
+            setValue[type](state => [...state, newProduct]);
             navigate(`shop/${type}`)
         } catch (error) {
             console.log(error.message);
@@ -48,9 +72,12 @@ export const ProductProvider = ({
 
 
     const contextValues = {
-        parts,
-        tools,
         waterpomps,
+        systems,
+        parts,
+        machines,
+        pipes,
+        tools,
         onCreateProduct,
 
     }

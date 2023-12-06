@@ -25,12 +25,12 @@ export const Create = () => {
                     <label >Product Type</label>
                     <select id="platform" name="type" value={values.type} onChange={changeHandler}>
                     <option value="">-------------</option>
-                        <option value="Waterpomps">WATERPOMP</option>
-                        <option value="IrrigationSystems">IRRIGATION SYSTEMS</option>
-                        <option value="Parts">PARTS</option>
-                        <option value="Tanks">WATER TANK</option>
-                        <option value="Pipes">PIPES</option>
-                        <option value="Tools">TOOLS</option>
+                        <option value="waterpomps">WATERPOMPS</option>
+                        <option value="systems">IRRIGATION SYSTEMS</option>
+                        <option value="parts">PARTS</option>
+                        <option value="machines">POWER MACHINES</option>
+                        <option value="pipes">PIPES</option>
+                        <option value="tools">TOOLS</option>
                     </select>
                     <label htmlFor="title">Title</label>
                     <input

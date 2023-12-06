@@ -1,10 +1,9 @@
 const router = require('express').Router();
-const waterpompManager = require('../manager/waterpompManager');
+const pipesManager = require('../manager/pipesManager');
 
 router.get('/', async (req, res) => {
-    console.log('yes');
     try {
-        const cards = await waterpompManager.getAll()
+        const cards = await pipesManager.getAll()
        
          res.json(cards)
     } catch (error) {
@@ -17,7 +16,7 @@ router.get('/', async (req, res) => {
 router.post('/create', async (req, res) => {
 
     try {
-        const card = await waterpompManager.create(req.body);
+        const card = await pipesManager.create(req.body);
 
         res.json(card)
     } catch (error) {
@@ -31,7 +30,7 @@ router.post('/create', async (req, res) => {
 router.get('/:cardId', async (req, res) => {
     const cardId = req.params.cardId
     try {
-        const card = await waterpompManager.getById(cardId)
+        const card = await pipesManager.getById(cardId)
 
         res.json(card)
     } catch (error) {
@@ -46,7 +45,7 @@ router.put('/:cardId',async(req,res)=>{
     const cardData=req.body
 
     try {
-        const card=await waterpompManager.update(cardId,cardData);
+        const card=await pipesManager.update(cardId,cardData);
 
         res.json(card);
     } catch (error) {
@@ -62,7 +61,7 @@ router.delete('/:cardId',async(req,res)=>{
    
 
     try {
-        await waterpompManager.update(cardId);
+        await pipesManager.update(cardId);
 
         res.status(204).end();
     } catch (error) {

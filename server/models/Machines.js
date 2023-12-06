@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const TankShema = new mongoose.Schema({
+const MachineShema = new mongoose.Schema({
     type:{
         type: String,
         required: [true, 'Type is required!'],
@@ -26,7 +26,7 @@ const TankShema = new mongoose.Schema({
         type: String,
         required: [true, 'Description is required!'],
         minLength: [5, 'Description shoud be at least 5 characters'],
-        maxLength: [50, 'Description shoud be max 50 characters']
+        maxLength: [500, 'Description shoud be max 500 characters']
     },
     buy: [{
         user: {
@@ -42,6 +42,6 @@ const TankShema = new mongoose.Schema({
     }],
 });
 
-const Tanks = mongoose.model('Tank', TankShema);
+const Machine = mongoose.model('Machine', MachineShema);
 
-module.exports = Tanks;
+module.exports = Machine;

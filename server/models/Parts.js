@@ -26,6 +26,7 @@ const PartsShema = new mongoose.Schema({
         type: String,
         required: [true, 'Description is required!'],
         minLength: [5, 'Description shoud be at least 5 characters'],
+        maxLength: [500, 'Description shoud be max 500 characters']
        
     },
     buy: [{

@@ -14,12 +14,10 @@ router.get('/', async (req, res) => {
 })
 
 router.post('/create', async (req, res) => {
-       console.log('yes');
-        console.log(req.body);
 
     try {
         const card = await partsManager.create(req.body);
-        console.log(card);
+    
         res.json(card)
     } catch (error) {
         console.log(error.message);
