@@ -25,7 +25,7 @@ export const Shop = () => {
                 <article className="card card--2">
 
                     <div className="card__img"></div>
-                    <a href="#" className="card_link">
+                    <a href="/shop/iriigationSystems" className="card_link">
                         <div className="card__img--hover"></div>
                     </a>
                     <div className="card__info">
@@ -55,7 +55,7 @@ export const Shop = () => {
                 <article className="card card--4">
 
                     <div className="card__img"></div>
-                    <a href="#" className="card_link">
+                    <a href="/shop/tanks" className="card_link">
                         <div className="card__img--hover"></div>
                     </a>
                     <div className="card__info">
@@ -69,7 +69,7 @@ export const Shop = () => {
                 <article className="card card--5">
 
                     <div className="card__img"></div>
-                    <a href="#" className="card_link">
+                    <a href="/shop/pipes" className="card_link">
                         <div className="card__img--hover"></div>
                     </a>
                     <div className="card__info">

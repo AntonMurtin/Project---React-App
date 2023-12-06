@@ -1,12 +1,11 @@
 
-import { usePartsContext } from '../../context/PartsContext';
-import { useWaterpompContext } from '../../context/WaterpompContext';
+import { useProductContext } from '../../context/ProductContext';
 import { useForm } from '../../hooks/useForm'
 
 export const Create = () => {
 
-    const { onCreateWaterpom } = useWaterpompContext()
-    const {onCreateParts , onCreateTools}=usePartsContext()
+    
+    const {onCreateProduct}=useProductContext()
 
     const { values, changeHandler, onSubmit } = useForm({
         type: '',
@@ -14,7 +13,7 @@ export const Create = () => {
         image: '',
         price: '',
         description: ''
-    }, onCreateTools);
+    }, onCreateProduct);
     return (
         <section className="create-page">
             <div className='create'>

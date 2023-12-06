@@ -1,9 +1,9 @@
-import { useWaterpompContext } from '../../../context/WaterpompContext';
+import { useProductContext } from '../../../context/ProductContext';
 import { ProductCard } from '../ProductCard/ProductCard';
 
 export const Waterpomp = () => {
 
-    const {waterpomps}=useWaterpompContext();
+    const {waterpomps}=useProductContext();
 
 
     return (

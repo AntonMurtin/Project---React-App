@@ -1,10 +1,10 @@
-import { usePartsContext } from "../../../context/PartsContext";
+import { useProductContext } from "../../../context/ProductContext";
 import { ProductCard } from "../ProductCard/ProductCard";
 
 
 export const Parts=()=>{
 
-    const {parts}=usePartsContext()
+    const {parts}=useProductContext()
     return(
         <section className="container">
 
