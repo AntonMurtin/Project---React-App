@@ -1,16 +1,19 @@
 import { Link, useParams } from 'react-router-dom'
 
-import { useProductContext } from "../../context/ProductContext"
+
 import { useEffect, useState } from 'react';
 import { productsServiceFactory } from '../../services/productsService';
 import { ProductCard } from '../Shop/ProductCard/ProductCard';
+import { useAuthContext } from '../../context/AuthContext';
 
 
 export const Details = () => {
     const {type,productId}=useParams();
+    const {isAuthenticated,isAdmin}=useAuthContext()
     
     const [product,setProduct]=useState([]);
     const [products,setProducts]=useState([]);
+    const allProducts=products.filter(x=>x._id!==productId);
 
     const productsServise = productsServiceFactory();
 
@@ -26,7 +29,7 @@ export const Details = () => {
                 setProducts(productsData);
                 setProduct(productData);
         })
-    }, []);
+    }, [productId]);
 
     return (
         <div className='login'>
@@ -41,8 +44,18 @@ export const Details = () => {
                     <div className='description'>
                         <p> {product.description}</p>
                     </div>
-                <Link to="#" className="buy_details btn1">Buy Now</Link>
-                <Link to="#" className="wish_details btn1" >WISH</Link>
+                    {isAuthenticated && !isAdmin && (
+                        <>
+                        <Link to="#" className="buy_details btn1">Buy Now</Link>
+                        <Link to="#" className="wish_details btn1" >WISH</Link>
+                        </>
+                    )}
+                    {isAdmin &&(
+                        <>
+                        <Link to={`/shop/${type}/${productId}/edit`} className="buy_details btn1"> Edit </Link>
+                        <Link to="#" className="wish_details btn1" >Delete</Link>
+                        </>
+                    )}
 
                 </div>
 
@@ -54,7 +67,7 @@ export const Details = () => {
                 </div>
 
             </div>
-            {products.map(x=>
+            {allProducts.map(x=>
                 <ProductCard key={x._id} {...x}/>)}
         </div>
 

@@ -10,25 +10,34 @@ export const productsServiceFactory = (token) => {
         const result = await request.post(`${url}/${type}/create`, productData);
 
         return result;
-    }
+    };
 
     const getAll = async (type) => {
         const result = await request.get(`${url}/${type}/`);
         const products = Object.values(result);
 
         return products;
-    }
+    };
 
     const getBiId=async(type,id)=>{
-        const result=await request.get(`${url}/${type}/${id}`)
-        const product = Object.values(result);
+        const product=await request.get(`${url}/${type}/${id}`)
 
+        return product;
+    };
+
+    const edit=async(type,id,data)=>{
+       const result=await request.put(`${url}/${type}/${id}`,data)
+    
         return result;
-    }
+    };
+
+    const del =(type,id)=>request.delete(`${url}/${type}/${id}`);
 
     return {
         create,
         getAll,
         getBiId,
+        edit,
+        del,
     };
 }

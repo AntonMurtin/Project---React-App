@@ -38,12 +38,12 @@ export const ProductProvider = ({
             pipesData,
             toolsData,
         ]) => {
-                setWaterpomps(waterpompsData);
-                setSystems(systemsData);
-                setParts(partsData);
-                setMachines(machinesData);
-                setPipes(pipesData);
-                setTools(toolsData);
+            setWaterpomps(waterpompsData);
+            setSystems(systemsData);
+            setParts(partsData);
+            setMachines(machinesData);
+            setPipes(pipesData);
+            setTools(toolsData);
         })
     }, []);
 
@@ -51,9 +51,9 @@ export const ProductProvider = ({
         waterpomps: setWaterpomps,
         systems: setSystems,
         parts: setParts,
-        machines:setMachines,
-        pipes:setPipes,
-        tools:setTools
+        machines: setMachines,
+        pipes: setPipes,
+        tools: setTools
     }
 
 
@@ -68,6 +68,18 @@ export const ProductProvider = ({
         } catch (error) {
             console.log(error.message);
         }
+    };
+
+    const onEditProduct = async (data) => {
+        const type = data.type;
+        const id = data._id;
+        try {
+            const result = await productsServise.edit(type, id, data);
+            setValue[type](state => state.map(x => x._id === data._id ? result : x))
+            navigate(`shop/${type}/${id}/details`)
+        } catch (error) {
+            console.log(error.message);
+        }
     }
 
 
@@ -79,6 +91,7 @@ export const ProductProvider = ({
         pipes,
         tools,
         onCreateProduct,
+        onEditProduct,
 
     }
     return (
