@@ -19,8 +19,16 @@ export const productsServiceFactory = (token) => {
         return products;
     }
 
+    const getBiId=async(type,id)=>{
+        const result=await request.get(`${url}/${type}/${id}`)
+        const product = Object.values(result);
+
+        return result;
+    }
+
     return {
         create,
         getAll,
+        getBiId,
     };
 }

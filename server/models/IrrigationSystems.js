@@ -26,7 +26,7 @@ const IrrigationSystemsShema = new mongoose.Schema({
         type: String,
         required: [true, 'Description is required!'],
         minLength: [5, 'Description shoud be at least 5 characters'],
-        maxLength: [500, 'Description shoud be max 500 characters']
+        maxLength: [5000, 'Description shoud be max 5000 characters']
     },
     buy: [{
         user: {

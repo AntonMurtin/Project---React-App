@@ -2,9 +2,9 @@ const router = require('express').Router();
 const machinesManager = require('../manager/machinesManager');
 
 router.get('/', async (req, res) => {
+
     try {
         const cards = await machinesManager.getAll()
-       
          res.json(cards)
     } catch (error) {
         res.status(400).json({
@@ -28,7 +28,7 @@ router.post('/create', async (req, res) => {
 });
 
 router.get('/:cardId', async (req, res) => {
-    const cardId = req.params.cardId
+    const cardId = req.params.cardId;
     try {
         const card = await machinesManager.getById(cardId)
 

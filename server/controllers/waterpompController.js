@@ -2,7 +2,7 @@ const router = require('express').Router();
 const waterpompManager = require('../manager/waterpompManager');
 
 router.get('/', async (req, res) => {
-    console.log('yes');
+
     try {
         const cards = await waterpompManager.getAll()
        

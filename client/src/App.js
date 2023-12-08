@@ -15,6 +15,10 @@ import { Waterpomp } from './components/Shop/Waterpomp/Waterpomp';
 import { Create } from './components/Create/Create';
 import { Parts } from './components/Shop/Parts/Parts';
 import {Tools} from './components/Shop/Tools/Tools';
+import { IrrigationSystems } from './components/Shop/IrrigationSystems/IrrigationSystems';
+import { PowerMachines } from './components/Shop/PowerMachines/PowerMachines';
+import { Pipes } from './components/Shop/Pipes/Pipes';
+import { Details } from './components/Details/Details';
 
 
 function App() {
@@ -28,8 +32,12 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/shop' element={<Shop />} />
                 <Route path='/shop/waterpom' element={<Waterpomp />} />
+                <Route path='/shop/systems' element={<IrrigationSystems />} />
                 <Route path='/shop/parts' element={<Parts/>} />
+                <Route path='/shop/machines' element={<PowerMachines/>} />
+                <Route path='/shop/pipes' element={<Pipes/>} />
                 <Route path='/shop/tools' element={<Tools/>} />
+                <Route path='/shop/:type/:productId/details' element={<Details />} />
                 <Route path='/create' element={<Create />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/register' element={<Register />} />
