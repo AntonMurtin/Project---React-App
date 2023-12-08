@@ -6,7 +6,7 @@ import { useProductContext } from "../../context/ProductContext";
 
 
 export const Edit = () => {
-    const productsServise = productsServiceFactory();
+    const productsService = productsServiceFactory();
 
     const { type, productId } = useParams();
 
@@ -21,7 +21,7 @@ export const Edit = () => {
     }, onEditProduct)
 
     useEffect(() => {
-        productsServise.getBiId(type, productId)
+        productsService.getBiId(type, productId)
             .then(result => {
                 changeValues(result)
             })

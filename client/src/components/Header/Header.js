@@ -27,13 +27,15 @@ export const Header = () => {
                          </>
                     )}
                     {isAdmin && (
+                        <>
                          <Link to="/create">Create</Link>
-
+                         <Link to="/logout">Logout</Link>
+                         </>
                     )}
-                     {isAuthenticated && (
+                     {isAuthenticated && !isAdmin && (
                          <>
                         
-                         <Link to="/offer">Meke me Offer</Link>
+                         <Link to="/favorit">My Favorit</Link>
                          <Link to="/logout">Logout</Link>
                          </>
                     )}

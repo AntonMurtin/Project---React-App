@@ -20,6 +20,7 @@ import { PowerMachines } from './components/Shop/PowerMachines/PowerMachines';
 import { Pipes } from './components/Shop/Pipes/Pipes';
 import { Details } from './components/Details/Details';
 import { Edit } from './components/Edit/Edit';
+import { Delete } from './components/Delete/Delete';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
               <Route path='/shop/tools' element={<Tools />} />
               <Route path='/shop/:type/:productId/details' element={<Details />} />
               <Route path='/shop/:type/:productId/edit' element={<Edit />} />
+              <Route path='/shop/:type/:productId/delete' element={<Delete />} />
               <Route path='/create' element={<Create />} />
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />

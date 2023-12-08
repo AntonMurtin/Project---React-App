@@ -26,12 +26,12 @@ export const productsServiceFactory = (token) => {
     };
 
     const edit=async(type,id,data)=>{
-       const result=await request.put(`${url}/${type}/${id}`,data)
+       const result=await request.put(`${url}/${type}/${id}/edit`,data)
     
         return result;
     };
 
-    const del =(type,id)=>request.delete(`${url}/${type}/${id}`);
+    const del =(type,id)=>request.delete(`${url}/${type}/${id}/delete`);
 
     return {
         create,

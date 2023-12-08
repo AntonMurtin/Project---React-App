@@ -15,12 +15,12 @@ export const Details = () => {
     const [products,setProducts]=useState([]);
     const allProducts=products.filter(x=>x._id!==productId);
 
-    const productsServise = productsServiceFactory();
+    const productsService = productsServiceFactory();
 
     useEffect(() => {
         Promise.all([
-            productsServise.getAll(type),
-            productsServise.getBiId(type,productId),
+            productsService.getAll(type),
+            productsService.getBiId(type,productId),
         ]).then(([
             productsData,
             productData,
@@ -53,7 +53,7 @@ export const Details = () => {
                     {isAdmin &&(
                         <>
                         <Link to={`/shop/${type}/${productId}/edit`} className="buy_details btn1"> Edit </Link>
-                        <Link to="#" className="wish_details btn1" >Delete</Link>
+                        <Link to={`/shop/${type}/${productId}/delete`} className="wish_details btn1" >Delete</Link>
                         </>
                     )}
 

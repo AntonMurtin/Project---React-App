@@ -41,7 +41,7 @@ router.get('/:cardId', async (req, res) => {
     }
 });
 
-router.put('/:cardId',async(req,res)=>{
+router.put('/:cardId/edit',async(req,res)=>{
     const cardId = req.params.cardId;
     const cardData=req.body
 
@@ -57,12 +57,12 @@ router.put('/:cardId',async(req,res)=>{
 
 })
 
-router.delete('/:cardId',async(req,res)=>{
+router.delete('/:cardId/delete',async(req,res)=>{
     const cardId = req.params.cardId;
    
 
     try {
-        await waterpompManager.update(cardId);
+        await waterpompManager.delete(cardId);
 
         res.status(204).end();
     } catch (error) {

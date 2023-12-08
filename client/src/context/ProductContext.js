@@ -19,16 +19,16 @@ export const ProductProvider = ({
     const [pipes, setPipes] = useState([]);
     const [tools, setTools] = useState([]);
 
-    const productsServise = productsServiceFactory()
+    const productsService = productsServiceFactory()
 
     useEffect(() => {
         Promise.all([
-            productsServise.getAll('waterpomps'),
-            productsServise.getAll('systems'),
-            productsServise.getAll('parts'),
-            productsServise.getAll('machines'),
-            productsServise.getAll('pipes'),
-            productsServise.getAll('tools'),
+            productsService.getAll('waterpomps'),
+            productsService.getAll('systems'),
+            productsService.getAll('parts'),
+            productsService.getAll('machines'),
+            productsService.getAll('pipes'),
+            productsService.getAll('tools'),
 
         ]).then(([
             waterpompsData,
@@ -61,7 +61,7 @@ export const ProductProvider = ({
         const type = data.type;
         try {
 
-            const newProduct = await productsServise.create(type, data);
+            const newProduct = await productsService.create(type, data);
 
             setValue[type](state => [...state, newProduct]);
             navigate(`shop/${type}`)
@@ -74,13 +74,15 @@ export const ProductProvider = ({
         const type = data.type;
         const id = data._id;
         try {
-            const result = await productsServise.edit(type, id, data);
+            const result = await productsService.edit(type, id, data);
             setValue[type](state => state.map(x => x._id === data._id ? result : x))
             navigate(`shop/${type}/${id}/details`)
         } catch (error) {
             console.log(error.message);
         }
     }
+
+    
 
 
     const contextValues = {
@@ -92,7 +94,7 @@ export const ProductProvider = ({
         tools,
         onCreateProduct,
         onEditProduct,
-
+        
     }
     return (
         <ProductContext.Provider value={contextValues}>
