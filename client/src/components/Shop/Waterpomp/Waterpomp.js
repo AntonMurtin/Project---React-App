@@ -7,7 +7,7 @@ export const Waterpomp = () => {
 console.log(waterpomps);
 
     return (
-        <section className="container">
+        <section className="page">
 
             {waterpomps.map(x=>
             <ProductCard key={x._id} {...x}/>

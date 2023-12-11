@@ -4,8 +4,8 @@ const pipesManager = require('../manager/pipesManager');
 router.get('/', async (req, res) => {
     try {
         const cards = await pipesManager.getAll()
-       
-         res.json(cards)
+
+        res.json(cards)
     } catch (error) {
         res.status(400).json({
             message: error.message
@@ -35,30 +35,30 @@ router.get('/:cardId', async (req, res) => {
         res.json(card)
     } catch (error) {
         res.status(400).json({
-            message:error.message
+            message: error.message
         });
     }
 });
 
-router.put('/:cardId/edit',async(req,res)=>{
+router.put('/:cardId/edit', async (req, res) => {
     const cardId = req.params.cardId;
-    const cardData=req.body
+    const cardData = req.body
 
     try {
-        const card=await pipesManager.update(cardId,cardData);
+        const card = await pipesManager.update(cardId, cardData);
 
         res.json(card);
     } catch (error) {
         res.status(400).json({
-            message:error.message
+            message: error.message
         });
     }
 
 })
 
-router.delete('/:cardId/delete',async(req,res)=>{
+router.delete('/:cardId/delete', async (req, res) => {
     const cardId = req.params.cardId;
-   
+
 
     try {
         await pipesManager.delete(cardId);
@@ -66,10 +66,64 @@ router.delete('/:cardId/delete',async(req,res)=>{
         res.status(204).end();
     } catch (error) {
         res.status(400).json({
-            message:error.message
+            message: error.message
         });
     }
 
 })
+
+router.put('/:cardId/wish', async (req, res) => {
+    const cardId = req.params.cardId;
+    const userId = req.body.userId;
+
+    try {
+        const card = await pipesManager.getById(cardId);
+        const isWish = card.wish.filter(x => x._id == userId);
+
+        if (isWish.length > 0) {
+            throw new Error('You awredi add the product to Favorit')
+        }
+
+        card.wish.push(userId);
+        card.save();
+        res.json(card);
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        });
+    }
+
+});
+
+router.get('/:userId/wish', async (req, res) => {
+    const userId = req.params.userId;
+
+    try {
+        const card = await pipesManager.searchWish(userId);
+
+        res.json(card);
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        });
+    }
+});
+
+router.put('/:cardId/remove', async (req, res) => {
+    const cardId = req.params.cardId;
+    const userId = req.body.userId;
+    try {
+        const card = await pipesManager.getById(cardId);
+
+        card.wish = card.wish.filter(x => x._id != userId);
+        card.save();
+        res.json(card);
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        });
+    }
+
+});
 
 module.exports = router;

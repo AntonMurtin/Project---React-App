@@ -6,8 +6,8 @@
 	border-radius: 5px;
 	overflow: hidden;
 	margin: 10em auto;
-	max-height: 550px;
-	max-width: 1200px;
+	height: max-content;
+	width: 70%;
   
 	
 }
@@ -60,16 +60,15 @@ top: 20px;
 
 
 .product-image {
-	z-index: 110px;
-	
+	margin-top: 25px;
 	transition: all 0.3s ease-out;
 	display: inline-block;
 	position:static;
-	height: 80%;
-	width: 45%;
+	
+	width: 25%;
 }
 
-#details img {width: 80%;height: 80%;}
+#details img {width: 110%;height: 80%;}
 
 
 

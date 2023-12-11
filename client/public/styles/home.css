@@ -1,6 +1,14 @@
-.home-page {
-  width:auto;
-  height: 2450px;
+.page {
+  display: block;
+  float: left; 
+  height: max-content;
+  width: 100%; 
+}
+.buy-page{
+  /* width: max-content; */
+  height: max-content;
+  margin-bottom: 50px;
+
 }
 
 

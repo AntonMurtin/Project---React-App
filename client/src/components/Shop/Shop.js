@@ -11,7 +11,7 @@ export const Shop = () => {
                 <article className="card card--1">
 
                     <div className="card__img"></div>
-                    <Link to="/shop/waterpom" className="card_link">
+                    <Link to="/shop/waterpomps" className="card_link">
                         <div className="card__img--hover"></div>
                     </Link>
                     <div className="card__info">

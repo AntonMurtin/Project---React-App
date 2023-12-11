@@ -6,7 +6,7 @@ export const IrrigationSystems=()=>{
 
     const {systems}=useProductContext()
     return(
-        <section className="container">
+        <section className="page">
 
             {systems.map(x=>
             <ProductCard key={x._id} {...x}/>

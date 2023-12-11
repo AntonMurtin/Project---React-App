@@ -15,7 +15,7 @@ export const Create = () => {
         description: ''
     }, onCreateProduct);
     return (
-        <section className="create-page">
+        <section className="page">
             <div className='create'>
 
                 <form method='POST' onSubmit={onSubmit}>

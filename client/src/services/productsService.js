@@ -33,11 +33,26 @@ export const productsServiceFactory = (token) => {
 
     const del =(type,id)=>request.delete(`${url}/${type}/${id}/delete`);
 
+    const removeWish=(type,id,userId)=>request.put(`${url}/${type}/${id}/remove`,userId)
+    
+    
+    const wish=(type,id,userId)=>request.put(`${url}/${type}/${id}/wish`,userId)
+    
+    const getWish = async (type,userId) => {
+        const result = await request.get(`${url}/${type}/${userId}/wish`);
+        const products = Object.values(result);
+
+        return products;
+    };
+
     return {
         create,
         getAll,
         getBiId,
         edit,
         del,
+        wish,
+        getWish,
+        removeWish,
     };
 }

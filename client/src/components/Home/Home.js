@@ -3,7 +3,7 @@
 export const Home = () => {
 
     return (
-        <section className="home-page">
+        <section className="page">
             <article >
                 <div className="home">
                     <div className="header header_home">Hi, I'm Micheal</div>

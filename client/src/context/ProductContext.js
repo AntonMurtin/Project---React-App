@@ -82,7 +82,27 @@ export const ProductProvider = ({
         }
     }
 
-    
+    const onWish=async(type,productId,userId)=>{
+       
+        try {
+            const result = await productsService.wish(type,productId,{userId});
+            setValue[type](state => state.map(x => x._id === productId ? result : x))
+            navigate(`shop/${type}`)
+        } catch (error) {
+            alert(error.message);
+        }
+    }
+
+    const onRemove=async(type,productId,userId)=>{
+       
+        try {
+            const result = await productsService.removeWish(type,productId,{userId});
+            setValue[type](state => state.map(x => x._id === productId ? result : x))
+            navigate(`/shop`)
+        } catch (error) {
+            alert(error.message);
+        }
+    }
 
 
     const contextValues = {
@@ -94,6 +114,8 @@ export const ProductProvider = ({
         tools,
         onCreateProduct,
         onEditProduct,
+        onWish,
+        onRemove,
         
     }
     return (

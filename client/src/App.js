@@ -21,6 +21,8 @@ import { Pipes } from './components/Shop/Pipes/Pipes';
 import { Details } from './components/Details/Details';
 import { Edit } from './components/Edit/Edit';
 import { Delete } from './components/Delete/Delete';
+import { Buy } from './components/Buy/Buy';
+import { Favorit } from './components/Favorit/Favorit';
 
 
 function App() {
@@ -29,11 +31,13 @@ function App() {
       <ProductProvider>
         <div className='root'>
           <Header />
-          <main >
+          <main className='buy-page'>
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/buy' element={<Buy />} />
+              <Route path='/favorit' element={<Favorit />} />
               <Route path='/shop' element={<Shop />} />
-              <Route path='/shop/waterpom' element={<Waterpomp />} />
+              <Route path='/shop/waterpomps' element={<Waterpomp />} />
               <Route path='/shop/systems' element={<IrrigationSystems />} />
               <Route path='/shop/parts' element={<Parts />} />
               <Route path='/shop/machines' element={<PowerMachines />} />

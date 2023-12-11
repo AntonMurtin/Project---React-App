@@ -5,17 +5,20 @@ import { useEffect, useState } from 'react';
 import { productsServiceFactory } from '../../services/productsService';
 import { ProductCard } from '../Shop/ProductCard/ProductCard';
 import { useAuthContext } from '../../context/AuthContext';
+import { useProductContext } from '../../context/ProductContext';
 
 
 export const Details = () => {
     const {type,productId}=useParams();
-    const {isAuthenticated,isAdmin}=useAuthContext()
+    const {isAuthenticated,isAdmin,userId}=useAuthContext();
+    const {onWish}=useProductContext()
     
     const [product,setProduct]=useState([]);
     const [products,setProducts]=useState([]);
     const allProducts=products.filter(x=>x._id!==productId);
 
     const productsService = productsServiceFactory();
+    
 
     useEffect(() => {
         Promise.all([
@@ -30,6 +33,14 @@ export const Details = () => {
                 setProduct(productData);
         })
     }, [productId]);
+
+    // const onWish=async(type,productId,userId)=>{
+    //     try {
+    //         await productsService.wish(type,productId,{userId})
+    //     } catch (error) {
+    //         console.log(error.message);
+    //     }
+    // }
 
     return (
         <div className='login'>
@@ -46,8 +57,9 @@ export const Details = () => {
                     </div>
                     {isAuthenticated && !isAdmin && (
                         <>
-                        <Link to="#" className="buy_details btn1">Buy Now</Link>
-                        <Link to="#" className="wish_details btn1" >WISH</Link>
+                        
+                        <Link to={`/shop`} className="buy_details btn1 ">Buy Now</Link>
+                        <Link  className="wish_details btn1" onClick={()=>{onWish(type,productId,userId)}} >Favorit</Link >
                         </>
                     )}
                     {isAdmin &&(

@@ -9,3 +9,6 @@ exports.getById = (cardId) => Pipes.findById(cardId);
 exports.update = (cardId, cardData) => Pipes.findByIdAndUpdate(cardId, cardData);
 
 exports.delete = (cardId) => Pipes.findByIdAndDelete(cardId);
+
+exports.searchWish = (userId) => Pipes.find({wish:{$elemMatch:{_id:userId}}});
+// exports.searchName = (searchName) => Electronic.find({name:{$regex: searchName, $options: 'i'}});

@@ -35,7 +35,7 @@ export const Header = () => {
                      {isAuthenticated && !isAdmin && (
                          <>
                         
-                         <Link to="/favorit">My Favorit</Link>
+                         <Link to="/favorit">Favorites</Link>
                          <Link to="/logout">Logout</Link>
                          </>
                     )}

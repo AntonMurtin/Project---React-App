@@ -37,6 +37,7 @@ const WaterpompShema = new mongoose.Schema({
     wish: [{
         user: {
             type: mongoose.Types.ObjectId,
+            unique: true,
             ref: 'User'
         },
     }],
