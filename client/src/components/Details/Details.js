@@ -11,10 +11,12 @@ import { useProductContext } from '../../context/ProductContext';
 export const Details = () => {
     const {type,productId}=useParams();
     const {isAuthenticated,isAdmin,userId}=useAuthContext();
-    const {onWish}=useProductContext()
+    const {onWish,onBuy}=useProductContext()
     
     const [product,setProduct]=useState([]);
     const [products,setProducts]=useState([]);
+    const [quantity,setQuantity]=useState(1)
+
     const allProducts=products.filter(x=>x._id!==productId);
 
     const productsService = productsServiceFactory();
@@ -41,16 +43,13 @@ export const Details = () => {
         })
     }, [productId]);
 
-    // const onWish=async(type,productId,userId)=>{
-    //     try {
-    //         await productsService.wish(type,productId,{userId})
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // }
+    const handleChange = event => {
+        setQuantity(event.target.value);
+    
+      };
 
     return (
-        <div className='new-size'>
+        <section className='page'>
             <div id="details">
 
                 <div className="product-details">
@@ -62,10 +61,22 @@ export const Details = () => {
                     <div className='description'>
                         <p> {product.description}</p>
                     </div>
+                    <div className='quantuty'>
+                    <label htmlFor="price">Quantity</label>
+                    <input className="search-input searchbar-input"
+                        type="number"
+                        name='quantity'
+                        placeholder="1"
+                        id="quantity"
+                        onChange={handleChange}
+                        value={quantity}
+                       
+                    />
+                    </div>
                     {isAuthenticated && !isAdmin && (
                         <>
                         
-                        <Link to={`/shop`} className="buy_details btn1 ">Buy Now</Link>
+                        <Link to={`/shop`} className="buy_details btn1 " onClick={()=>{onBuy(productId,quantity,product.price,product.image)}}>Buy Now</Link>
                         <Link  className="wish_details btn1" onClick={()=>{onWish(type,productId,userId)}} >Favorit</Link >
                         </>
                     )}
@@ -86,12 +97,12 @@ export const Details = () => {
                 </div>
 
             </div>
-           
+           <div className='details-card'>
 
             {allProducts.map(x=>
                 <ProductCard key={x._id} {...x}/>)}
-            
-        </div>
+            </div >
+        </section>
 
     )
 }

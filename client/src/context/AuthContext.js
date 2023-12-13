@@ -25,9 +25,9 @@ export const AuthProvider = ({
 
             setAuth(result);
 
-            navigate('/');
+            navigate('/shop');
         } catch (error) {
-            console.log(error.message);
+            alert(error.message);
         }
     };
 
@@ -35,14 +35,14 @@ export const AuthProvider = ({
 
         try {
             const result = await authService.register(values);
-            console.log(result);
+          
 
 
             setAuth(result);
 
-            navigate('/');
+            navigate('/shop');
         } catch (error) {
-            console.log('There is a problem');
+            alert(error.message);
         }
     };
 

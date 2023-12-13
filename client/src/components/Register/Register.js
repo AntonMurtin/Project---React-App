@@ -14,6 +14,7 @@ export const Register = () => {
     }, onRegisterSubmit);
 
     return (
+        <section className='product-page'>
         <div className='register'>
 
             <form method='POST' onSubmit={onSubmit}>
@@ -66,5 +67,6 @@ export const Register = () => {
 
             </form>
         </div>
+        </section>
     )
 }

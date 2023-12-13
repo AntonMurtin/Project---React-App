@@ -64,9 +64,9 @@ export const ProductProvider = ({
             const newProduct = await productsService.create(type, data);
 
             setValue[type](state => [...state, newProduct]);
-            navigate(`shop/${type}`)
+            navigate(`/shop/${type}`)
         } catch (error) {
-            console.log(error.message);
+            alert(error.message);
         }
     };
 
@@ -76,9 +76,9 @@ export const ProductProvider = ({
         try {
             const result = await productsService.edit(type, id, data);
             setValue[type](state => state.map(x => x._id === data._id ? result : x))
-            navigate(`shop/${type}/${id}/details`)
+            navigate(`/shop/${type}/${id}/details`)
         } catch (error) {
-            console.log(error.message);
+            alert(error.message);
         }
     }
 
@@ -87,7 +87,7 @@ export const ProductProvider = ({
         try {
             const result = await productsService.wish(type,productId,{userId});
             setValue[type](state => state.map(x => x._id === productId ? result : x))
-            navigate(`shop/${type}`)
+            navigate(`/shop/${type}`)
         } catch (error) {
             alert(error.message);
         }
@@ -98,12 +98,13 @@ export const ProductProvider = ({
         try {
             const result = await productsService.removeWish(type,productId,{userId});
             setValue[type](state => state.map(x => x._id === productId ? result : x))
-            navigate(`/favorit`)
+            navigate(`/shop/${type}/${productId}/details`)
         } catch (error) {
             alert(error.message);
         }
     }
 
+    
 
     const contextValues = {
         waterpomps,

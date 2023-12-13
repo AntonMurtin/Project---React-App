@@ -19,17 +19,17 @@ export const Header = () => {
 
                 </div>
                 <div className="list">
-                    <div class="searchbar">
-                        <input class="search-input searchbar-input"
+                    <div className="searchbar">
+                        <input className="search-input searchbar-input"
                             type="text"
                             name="title"
                             placeholder="Search product..."
                             id="title"
                         />
                     </div>
-                        <Link to="/search" className="search"><i class="fa-solid fa-magnifying-glass"></i></Link>
+                        <Link to="/search" className="search"><i className="fa-solid fa-magnifying-glass"></i></Link>
 
-                    <Link to="/shop"><i class="fa-solid fa-shop"></i></Link>
+                    <Link to="/shop"><i className="fa-solid fa-shop"></i></Link>
                     {!isAuthenticated && (
                         <>
                             <Link to="/login">Login</Link>
@@ -38,17 +38,17 @@ export const Header = () => {
                     )}
                     {isAdmin && (
                         <>
-                            <Link to="/create">Create<i class="fa-solid fa-square-plus"></i></Link>
-                            <Link to="/logout" ><i class="fa-solid fa-right-from-bracket"></i></Link>
+                            <Link to="/create"><i className="fa-solid fa-square-plus"></i></Link>
+                            <Link to="/logout" ><i className="fa-solid fa-right-from-bracket"></i></Link>
 
                         </>
                     )}
                     {isAuthenticated && !isAdmin && (
                         <>
 
-                            <Link to="/favorit" className='favorit-icon'><i class="fa-solid fa-heart"></i></Link>
-                            <Link to="/proffile" className='cart-icon'><i class="fa-solid fa-cart-shopping  non-empty"></i></Link>
-                            <Link to="/logout" ><i class="fa-solid fa-person-walking-dashed-line-arrow-right"></i></Link>
+                            <Link to="/favorit" className='favorit-icon'><i className="fa-solid fa-heart"></i></Link>
+                            <Link to="/buy" className='cart-icon'><i className="fa-solid fa-cart-shopping  non-empty"></i></Link>
+                            <Link to="/logout" ><i className="fa-solid fa-person-walking-dashed-line-arrow-right"></i></Link>
                         </>
                     )}
                    

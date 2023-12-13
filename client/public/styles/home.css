@@ -1,18 +1,19 @@
 #home{
+	
 	box-shadow: 0 15px 30px 1px grey;
 	background: white;
 	text-align: center;
-	border-radius: 5px;
-	
-	margin: 10.5em auto;
+	border-radius: 20px;
+	margin: 10em  auto;
 	height: max-content;
-	width: 60%;
+	width: 70%;
+
   
 }
 .home-title{
 	color: black;
 	
-    padding: 5% 10Px;
+    padding: 3% 10Px;
 	text-align: center;
     font-size:3rem;
     font-weight:500;
@@ -20,6 +21,7 @@
 }
 
 .home-details {
+	
 	position: relative;
 	text-align: left;
 	

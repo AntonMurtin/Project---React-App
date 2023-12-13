@@ -8,9 +8,9 @@ export const ProductCard = (data) => {
             <span className="product__price">{data.price} $</span>
             <div className='syze'><img className="product__image" src={data.image} /></div>
             <div className='syze'><h1 className="product__title">{data.title}</h1></div>
-            {isAuthenticated && !isAdmin && (
+            {/* {isAuthenticated && !isAdmin && (
             <Link to="#" className="buy__btn btn1">Buy Now</Link>
-            )}
+            )} */}
             <Link to={`/shop/${data.type}/${data._id}/details`} className="details__btn btn1">Details</Link>
         </div>
     );

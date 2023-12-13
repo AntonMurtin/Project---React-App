@@ -52,7 +52,7 @@ export const Favorit = () => {
  
 
     return (
-        <section  >
+        <section className="product-page" >
             
             
             {favorits.map(x=>

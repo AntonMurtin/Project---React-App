@@ -1,9 +1,16 @@
-import {Link} from 'react-router-dom'
+import { useEffect } from 'react';
+import {Link , useLocation} from 'react-router-dom'
 
 export const Home=()=>{
 
+    const { pathname } = useLocation();
+    
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [pathname]);
+
     return(
-        <section >
+        <section className='product-page'>
       
       <div id="home">
             <div className="home-details">

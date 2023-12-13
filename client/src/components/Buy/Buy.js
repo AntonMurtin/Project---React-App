@@ -6,7 +6,7 @@ export const Buy = () => {
 
     // <section className="shop-section">
     //   <div className='cart-box'>
-    //                   {/* <div className='cart-icon'><i class="fa-solid fa-cart-shopping fa-2x non-empty"></i></div> */}
+    //                   {/* <div className='cart-icon'><i className="fa-solid fa-cart-shopping fa-2x non-empty"></i></div> */}
     //                   <div className='whole-cart-window hide'>
     //                       <h2>Shoping Bag</h2>
     //                       <div className='cart-wrapper'>
@@ -18,7 +18,7 @@ export const Buy = () => {
     //                                   <span className='price'>Price: $23.5</span>
 
     //                               </div>
-    //                               <div className='cancel'><i class="fas fa-window-close"></i></div>
+    //                               <div className='cancel'><i className="fas fa-window-close"></i></div>
     //                           </div>
     //                       </div>
     //                       <div className='subtotal'>Subtotal: $0.0</div>
@@ -41,7 +41,7 @@ export const Buy = () => {
         <div className='cart-box'>
         <div className='whole-cart-window '>
 
-          <div className='cart-shop'>
+        <div className='cart-shop'>
             <img src='https://api.grundfos.com/gpi/imaging/productgroup?pgcode=JPFAM&w=1000&h=750' alt='' />
             <div className='details'>
               <p>Ldasdasd safasfgasff asfasfasfasfasf.</p>
@@ -49,7 +49,7 @@ export const Buy = () => {
               <span className='price'>Price: $23.5</span>
 
             </div>
-            <div className='cancel'><i class="fas fa-window-close"></i></div>
+            <div className='cancel'><i className="fas fa-window-close"></i></div>
           </div>
 
 
@@ -61,7 +61,7 @@ export const Buy = () => {
               <span className='price'>Price: $23.5</span>
 
             </div>
-            <div className='cancel'><i class="fas fa-window-close"></i></div>
+            <div className='cancel'><i className="fas fa-window-close"></i></div>
           </div>
 
 
@@ -73,7 +73,31 @@ export const Buy = () => {
               <span className='price'>Price: $23.5</span>
 
             </div>
-            <div className='cancel'><i class="fas fa-window-close"></i></div>
+            <div className='cancel'><i className="fas fa-window-close"></i></div>
+          </div>
+
+
+          <div className='cart-shop'>
+            <img src='https://api.grundfos.com/gpi/imaging/productgroup?pgcode=JPFAM&w=1000&h=750' alt='' />
+            <div className='details'>
+              <p>Ldasdasd safasfgasff asfasfasfasfasf.</p>
+              <span className='quantity'>Quantity: 1</span>
+              <span className='price'>Price: $23.5</span>
+
+            </div>
+            <div className='cancel'><i className="fas fa-window-close"></i></div>
+          </div>
+
+
+          <div className='cart-shop'>
+            <img src='https://api.grundfos.com/gpi/imaging/productgroup?pgcode=JPFAM&w=1000&h=750' alt='' />
+            <div className='details'>
+              <p>Ldasdasd safasfgasff asfasfasfasfasf.</p>
+              <span className='quantity'>Quantity: 1</span>
+              <span className='price'>Price: $23.5</span>
+
+            </div>
+            <div className='cancel'><i className="fas fa-window-close"></i></div>
           </div>
 
         </div>

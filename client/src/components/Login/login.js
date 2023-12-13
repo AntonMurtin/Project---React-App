@@ -10,6 +10,7 @@ export const Login = () => {
         password: '',
     }, onLoginSubmit)
     return (
+        <section className='product-page'>
         <div className='login'>
 
             <form method='POST' onSubmit={onSubmit}>
@@ -40,5 +41,6 @@ export const Login = () => {
 
             </form>
         </div>
+        </section>
     )
 }

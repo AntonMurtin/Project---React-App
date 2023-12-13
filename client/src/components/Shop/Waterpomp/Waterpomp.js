@@ -4,7 +4,7 @@ import { ProductCard } from '../ProductCard/ProductCard';
 export const Waterpomp = () => {
 
     const {waterpomps}=useProductContext();
-console.log(waterpomps);
+
 
     return (
         <section >

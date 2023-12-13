@@ -24,6 +24,7 @@ import { Delete } from './components/Delete/Delete';
 import { Buy } from './components/Buy/Buy';
 import { Favorit } from './components/Favorit/Favorit';
 import { Abault } from './components/Abault/Abault';
+import { ErrorPage } from './components/404/404';
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
               <Route path='/login' element={<Login />} />
               <Route path='/register' element={<Register />} />
               <Route path='/logout' element={<Logout />} />
+              <Route path='/*' element={<ErrorPage />} />
 
             </Routes>
           </main>

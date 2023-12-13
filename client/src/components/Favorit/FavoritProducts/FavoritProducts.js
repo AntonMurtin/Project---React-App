@@ -6,6 +6,7 @@ export const FavoritProducts = (product) => {
     const { onRemove } = useProductContext();
     const { userId } = useAuthContext();
     return (
+        
         <div id="details">
             <div className="product-details">
 
