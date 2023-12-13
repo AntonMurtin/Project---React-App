@@ -6,7 +6,7 @@ export const Pipes=()=>{
     const {pipes}=useProductContext();
 
     return (
-        <section className="container">
+        <section className="product-page">
             {pipes.map(x=>
                 <ProductCard key={x._id} {...x}/>)}
         </section>

@@ -6,7 +6,7 @@ export const Tools=()=>{
 
     const {tools}=useProductContext()
     return(
-        <section className="container">
+        <section className="product-page">
 
             {tools.map(x=>
             <ProductCard key={x._id} {...x}/>

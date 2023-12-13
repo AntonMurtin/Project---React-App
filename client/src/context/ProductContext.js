@@ -98,7 +98,7 @@ export const ProductProvider = ({
         try {
             const result = await productsService.removeWish(type,productId,{userId});
             setValue[type](state => state.map(x => x._id === productId ? result : x))
-            navigate(`/shop`)
+            navigate(`/favorit`)
         } catch (error) {
             alert(error.message);
         }

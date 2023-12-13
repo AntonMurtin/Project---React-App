@@ -6,7 +6,7 @@ export const Parts=()=>{
 
     const {parts}=useProductContext()
     return(
-        <section className="container">
+        <section className="product-page">
 
             {parts.map(x=>
             <ProductCard key={x._id} {...x}/>

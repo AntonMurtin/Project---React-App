@@ -1,9 +1,10 @@
 
   
-  .catalog {
-
-    width:auto;
-    height: 300px;
+  .product-page{
+    min-height: 720px;
+    margin-top: 95px;
+    margin-bottom: 30px;
+   
   }
 
   

@@ -1,88 +1,30 @@
-.page {
-  display: block;
-  float: left; 
-  height: max-content;
-  width: 100%; 
-}
-.buy-page{
-  /* width: max-content; */
-  height: max-content;
-  margin-bottom: 50px;
-
-}
-
-
-.home {
-  width: auto;
-  padding-right: 15px;
-  padding-top: 10em;
-  justify-content: right;
-  padding-left: 15px;
-  position: relative;
-  display:flex;
-  box-sizing: border-box;
-  text-align: center;
-  margin: auto;
-  top: 5em;
-  margin-bottom: 85px;
-   
+#home{
+	box-shadow: 0 15px 30px 1px grey;
+	background: white;
+	text-align: center;
+	border-radius: 5px;
+	
+	margin: 10.5em auto;
+	height: max-content;
+	width: 60%;
   
-  max-width: 1400px;
-  height: 700px;
-  
-  background: hsl(0,0%,95%);
-  box-shadow: 1px 1px 25px 3px rgba(0,0,0,.3); 
 }
-.image--1 {
-  background-image: url('../images/top.jpg');
-}
-.image--2 {
-  background-image: url('../images/tablo.jpg');
-}
-.image--3 {
-  background-image: url('../images/bidon.jpg');
-}
-.image--4 {
-  background-image: url('../images/durty.jpg');
+.home-title{
+	color: black;
+	
+    padding: 5% 10Px;
+	text-align: center;
+    font-size:3rem;
+    font-weight:500;
+    text-align:center;
 }
 
-.header{
-  position:absolute;
-  font-size: 2.875rem;
-  top: 15%;
-  left: 7%;
-}
-.header::after {
-  content:'';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 5%;
-  
-  background: black;
+.home-details {
+	position: relative;
+	text-align: left;
+	
 }
 
 
-/*************/
-.content {
-  position: absolute;
-  font-size: 1.525rem;
-  width: 30%;
-  
-  top: 35%;
-  left: 7%;
-}
-.image {
-  position: absolute;
-  top: 0;
-  right: 0;
 
-  width: 70%;
-  height: 100%;
-  /* background-image: url(https://images.unsplash.com/photo-1580707578919-892eb22db615?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG1hbiUyMHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60); */
-  clip-path: polygon(15% 0%, 100% 0, 100% 100%, 8% 100%); 
-  
-  background-repeat: no-repeat;
-  background-size: cover;
-}
+#home img {width: 33%;height: 33%;}

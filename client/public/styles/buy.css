@@ -1,27 +1,37 @@
-
+/* .buy-page{
+    
+    max-height: 8600px;
+} */
 .wrapper{
    
-    height: max-content;
-    margin: 120px auto;
+    max-width: 800px;
+    margin: 180px auto;
     padding: 20px;
     background-color: rgba(255,255,255,0.13);
-    position:absolute;
+    /* position:absolute;
     transform: translate(-50%,-50%);
     top: 60%;
-    left: 50%;
+    left: 50%; */
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    
+
    
 }
+.shop-hedar{
+  
+  max-width: 200px;
+  text-align: center;
 
+}
 
-.close{
+/* .close{
     font-size: 1rem;
     font-weight: normal;
     opacity: 1;
-}
+} */
 .close:hover{
     background-color:rgb(189, 27, 27);
 }
@@ -39,21 +49,22 @@
 
 
 
-.table{
- width:  850px;
+/* .table{
+ width:  50px;
  background-color: rgba(255,255,255,0.13);
     overflow: hidden;
-}
-.table thead tr th{
+} */
+/* .table thead tr th{
     letter-spacing: 0.08rem;
     font-weight: normal;
-}
-.table tr td,
+} */
+/* .table tr td,
 .table tr th{
     font-weight: 600;
-}
+} */
 h2{
-    font-size:4rem;
+   text-align: center;
+    font-size:3rem;
     color:white;
     font-weight:800;
     text-align:center;
@@ -72,8 +83,8 @@ h2{
 }
 
 
-/* to do */
-.table tbody td.item{
+
+/* .table tbody td.item{
     
     font-size: 1.8rem;
     font-weight: 600;
@@ -111,11 +122,11 @@ h2{
 
 .tag,.fa-shoppping-cart{
     font-size: 0.5rem;
-}
+} */
 
 #buybtn{
     margin-top: 30px;
-    margin-left: 300px;
+    margin-left: 250px;
         width: 30%;
         text-align: center;
         background-color: #ffffff;
@@ -125,4 +136,92 @@ h2{
         font-weight: 600;
         border-radius: 5px;
         cursor: pointer;
+} 
+
+/* .cart-box{
+    
+    width: 30% !important;
+    position:absolute;
+    left: 72%;
+    top:25%;
+    border:solid 1px white ;
+    padding: 10px 20px;
+} */
+
+
+/* виж за контейнер заавтоматичен размер */
+.cart-wrapper{
+    overflow-y: auto;
+    max-height: 350px;
+}
+
+.subtotal{
+    text-align: right;
+    padding: 5%;
+}
+
+
+/* .cart-icon{
+    text-align: right;
+} */
+
+.cart-shop{
+display:grid;
+grid-template-columns: 3fr 5fr 1fr;
+padding: 3% 2%;
+border-bottom: solid 1px lightgray;
+}
+
+.cart-shop img{
+    width:100% ;
+}
+
+.cart-shop .details{
+    padding-left: 5%;
+}
+
+.cart-shop h3{
+    text-align: left;
+    margin-bottom: 5%;
+}
+
+.cart-shop .price{
+    display: block;
+   
+    margin-top:10%;
+}
+
+.cart-shop .quantity{
+display: block;
+margin-top: 5%;
+}
+
+.fa-window-close{
+   color: red;
+}
+
+.cancel{
+    text-align: right;
+    cursor: pointer;
+}
+
+/* да се позиционира всичко след навигацията*/
+/* whole-cart-window{
+    border: solid green 1px;
+    border-top: none;
+    position: fixed;
+    top:12vh;
+    background-color: white;
+    margin-right:2% ;
+} */
+
+
+.non-empty::after{
+content:var(--after-content) ;
+font-size: 15px;
+width: 15px;
+display: inline-block;
+text-align: center;
+background-color: red;
+border-radius: 50%;
 }

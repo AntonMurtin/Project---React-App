@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { productsServiceFactory } from "../../services/productsService";
 import { useAuthContext } from "../../context/AuthContext";
-import { useProductContext } from "../../context/ProductContext";
+// import { useProductContext } from "../../context/ProductContext";
 import { FavoritProducts } from "./FavoritProducts/FavoritProducts";
+import { useLocation } from "react-router-dom";
 
 
 
@@ -14,6 +15,11 @@ export const Favorit = () => {
    
 
     const [favorits, setFavorits] = useState([]);
+    const { pathname } = useLocation();
+    
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [pathname]);
 
     useEffect(() => {
         Promise.all([
@@ -41,7 +47,7 @@ export const Favorit = () => {
                 ...toolsData,]
             );
         })
-    }, []);
+    }, [pathname]);
 
  
 

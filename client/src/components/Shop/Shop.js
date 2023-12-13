@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 export const Shop = () => {
 
     return (
-        <section className="catalog">
+        <section >
 
 
             <div className="cards">

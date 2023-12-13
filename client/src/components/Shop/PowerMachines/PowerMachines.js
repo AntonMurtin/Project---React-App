@@ -6,7 +6,7 @@ export const PowerMachines=()=>{
     const {machines}=useProductContext();
 
     return (
-        <section className="container">
+        <section className="product-page">
             {machines.map(x=>
                 <ProductCard key={x._id} {...x}/>)}
         </section>

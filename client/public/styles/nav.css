@@ -1,9 +1,20 @@
-* {
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+
+*,
+*::after{
+    /* margin: 0; */
+    padding: 0;
     box-sizing: border-box;
-  }
+}
+:root{
+    --after-content:'2';
+}
+
   body {
    
     background-image: url('../images/fon.jpg');
+    width: 98vw;
+    font-family: "Lato", sans-serif;
   
     /* background-attachment: fixed; */
     /* -webkit-background-size: cover; */
@@ -11,6 +22,7 @@
     -o-background-size: cover; */
     background-size: cover;
   }
+
   nav {
     position:relative;
     z-index: 100;
@@ -82,9 +94,9 @@
     &::before {
       content: '';
       display: inline-block;
-      width: 2rem;
+      width: 1.5rem;
       height: 2rem;
-      background: center/1.3rem 1.3rem no-repeat url("data:image/svg+xml, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2015.17%2014.81%27%20width=%2715.17%27%20height=%2714.81%27%3E%3Cpath%20d=%27M6,.67A5.34,5.34,0,1,1,.67,6,5.33,5.33,0,0,1,6,.67ZM9.86,9.58l4.85,4.75Z%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%271.33%27%2F%3E%3C%2Fsvg%3E");
+      background: center/1.5rem 1.5rem no-repeat url("data:image/svg+xml, %3Csvg%20xmlns=%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox=%270%200%2015.17%2014.81%27%20width=%2715.17%27%20height=%2714.81%27%3E%3Cpath%20d=%27M6,.67A5.34,5.34,0,1,1,.67,6,5.33,5.33,0,0,1,6,.67ZM9.86,9.58l4.85,4.75Z%27%20fill=%27none%27%20stroke=%27%23fff%27%20stroke-width=%271.33%27%2F%3E%3C%2Fsvg%3E");
     }
   }
   .menu {
@@ -102,12 +114,24 @@
       display: none;
     }
   }
- 
+
+  .searchbar {
+    width: 200px;
+    display:inline-block;
+
+}
+.searchbar-input, .searchbar-recent {
+  width: 100%;
+  padding-left: 1.8rem!important;
+}
+
+.shopping-cart{
+  font-size:48px;
+  color:red
+}
  
   footer {
-    position:relative;
-    padding: 0 5.6rem;
-    margin-top: 50rem;
+    height: 85px;
     justify-content: space-between;
     display: flex;
     align-items: center;
@@ -116,12 +140,33 @@
     -webkit-backdrop-filter: blur(8px) brightness(0.8);
     text-shadow: 0 0 5px rgba(0,0,0,0.5);
     color: white;
-    font-size: 16px;
+    font-size: 15px;
+ 
 }
 .logo{
 margin-top: -15px;
   position:sticky;
 }
+.cart-icon{
+  text-align:right;
+}
+
+
+
+/* .icon--cart {   
+  svg {     
+    display:none;   
+  }  
+
+.header .header-actions-action--cart svg {
+  stroke:transparent!important
+}
+
+.header .header-actions-action--cart {
+background-image: url();
+background-size: 22px 24px;
+background-repeat: no-repeat;
+} */
 
 /* footer {
     

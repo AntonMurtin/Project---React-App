@@ -7,11 +7,12 @@ export const Waterpomp = () => {
 console.log(waterpomps);
 
     return (
-        <section className="page">
-
+        <section >
+            <div className='product-page'>
             {waterpomps.map(x=>
             <ProductCard key={x._id} {...x}/>
             )}
+            </div>
         </section>
     )
 }

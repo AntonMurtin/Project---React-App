@@ -1,41 +1,39 @@
+import {Link} from 'react-router-dom'
 
+export const Home=()=>{
 
-export const Home = () => {
+    return(
+        <section >
+      
+      <div id="home">
+            <div className="home-details">
 
-    return (
-        <section className="page">
-            <article >
-                <div className="home">
-                    <div className="header header_home">Hi, I'm Micheal</div>
-                    <div className="content content_home">I am a Freelance Designer and Photograph, each experience is for me a unique mean of growing as a person and delivering great content. (And this is some dummy text to fill more space.)</div>
-                    <div className="image image--1"></div>
-                </div>
-            </article>
+                <h1 className="home-title">EVERYTHING YOU NEED IN ONE PLACE </h1>
 
-            <article >
-                <div className="home">
-                    <div className="header header_home">Hi, I'm Micheal</div>
-                    <div className="content content_home">I am a Freelance Designer and Photograph, each experience is for me a unique mean of growing as a person and delivering great content. (And this is some dummy text to fill more space.)</div>
-                    <div className="image image--2"></div>
-                </div>
-            </article>
+               
+                    <p> .</p>
+                
 
-            <article >
-                <div className="home">
-                    <div className="header header_home">Hi, I'm Micheal</div>
-                    <div className="content content_home">I am a Freelance Designer and Photograph, each experience is for me a unique mean of growing as a person and delivering great content. (And this is some dummy text to fill more space.)</div>
-                    <div className="image image--3"></div>
-                </div>
-            </article>
+                <Link to={`/SHOP`} className="buy_details btn1 ">shop</Link>
+                
 
-            <article >
-                <div className="home">
-                    <div className="header header_home">Hi, I'm Micheal</div>
-                    <div className="content content_home">I am a Freelance Designer and Photograph, each experience is for me a unique mean of growing as a person and delivering great content. (And this is some dummy text to fill more space.)</div>
-                    <div className="image image--4"></div>
-                </div>
-            </article>
-        </section>
+            </div>
+            {/* <div className="home-image"> */}
+
+            <img src='../images/grudfosPomp.jpg' />
+            {/* <img src="../images/RAZ.jpeg"/> */}
+            <img src='../images/220210082925warer.jpg' />
+            {/* <img src='../images/mashins.jpg '/> */}
+            {/* <img src='../images/trubi.jpg' /> */}
+            <img src='../../images/tools.jpg' />
+
+            {/* </div> */}
+        </div>
+
+     </section>
+
+       
+
 
     )
 }

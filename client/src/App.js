@@ -23,17 +23,19 @@ import { Edit } from './components/Edit/Edit';
 import { Delete } from './components/Delete/Delete';
 import { Buy } from './components/Buy/Buy';
 import { Favorit } from './components/Favorit/Favorit';
+import { Abault } from './components/Abault/Abault';
 
 
 function App() {
   return (
     <AuthProvider>
       <ProductProvider>
-        <div className='root'>
+        <div >
           <Header />
-          <main className='buy-page'>
+          <main >
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/abalt' element={<Abault />} />
               <Route path='/buy' element={<Buy />} />
               <Route path='/favorit' element={<Favorit />} />
               <Route path='/shop' element={<Shop />} />

@@ -1,0 +1,80 @@
+
+.abalt {
+    width: auto;
+    padding-right: 15px;
+    padding-top: 10em;
+    justify-content: right;
+    padding-left: 15px;
+    position: relative;
+    display:flex;
+    box-sizing: border-box;
+    text-align: center;
+    margin: auto;
+    top: 5em;
+    margin-bottom: 85px;
+     
+    
+    max-width: 1400px;
+    height: 600px;
+    
+    background: hsl(0,0%,95%);
+    box-shadow: 1px 1px 25px 3px rgba(0,0,0,.3); 
+  }
+  
+  .image--1 {
+   
+    background-image: url('../images/top.jpg');
+    
+  }
+  .image--2 {
+    background-image: url('../images/tablo.jpg');
+  
+  }
+  .image--3 {
+    background-image: url('../images/bidon.jpg');
+    
+  }
+  .image--4 {
+    background-image: url('../images/durty.jpg');
+  }
+  
+  .header-abalt{
+    position:absolute;
+    font-size: 2.875rem;
+    top: 15%;
+    left: 7%;
+  }
+  .header-abalt::after {
+    content:'';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5%;
+    
+    background: black;
+  }
+  
+  
+  /*************/
+  .content-abalt {
+    position: absolute;
+    font-size: 1.525rem;
+    width: 30%;
+    
+    top: 35%;
+    left: 7%;
+  }
+  .image-abalt {
+    position: absolute;
+    top: 0;
+    right: 0;
+  
+    width: 70%;
+    height: 100%;
+    /* background-image: url(https://images.unsplash.com/photo-1580707578919-892eb22db615?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG1hbiUyMHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60); */
+    clip-path: polygon(15% 0%, 100% 0, 100% 100%, 8% 100%); 
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

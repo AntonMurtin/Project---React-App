@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams,useLocation } from 'react-router-dom'
 
 
 import { useEffect, useState } from 'react';
@@ -19,6 +19,13 @@ export const Details = () => {
 
     const productsService = productsServiceFactory();
     
+  
+
+      const { pathname } = useLocation();
+    
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, [pathname]);
 
     useEffect(() => {
         Promise.all([
@@ -43,7 +50,7 @@ export const Details = () => {
     // }
 
     return (
-        <div className='login'>
+        <div className='new-size'>
             <div id="details">
 
                 <div className="product-details">
@@ -79,8 +86,11 @@ export const Details = () => {
                 </div>
 
             </div>
+           
+
             {allProducts.map(x=>
                 <ProductCard key={x._id} {...x}/>)}
+            
         </div>
 
     )

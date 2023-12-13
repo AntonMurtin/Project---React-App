@@ -1,8 +1,10 @@
+/* @import 'shoping.css'; */
+@import 'nav.css'; 
+@import 'login-register.css';
 @import 'home.css';
+@import 'shop.css';
 @import 'card.css';
 @import 'details.css';
-@import 'nav.css';
-@import 'shop.css';
 @import 'buy.css';
-@import 'login-register.css';
+@import 'abalt.css';
 
