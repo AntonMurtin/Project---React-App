@@ -1,7 +1,16 @@
+import { useEffect, useState } from "react";
+import { useBuyContext } from "../../context/BuyContext"
+import { BuyProduct } from "./BuyProduct/BuyProduct"
 
 
 export const Buy = () => {
 
+  const {products}=useBuyContext();
+  
+  const [buy,setBuy]=useState([]);
+  useEffect(()=>{
+setBuy(products)
+  },[products])
   return (
 
     // <section className="shop-section">
@@ -41,71 +50,12 @@ export const Buy = () => {
         <div className='cart-box'>
         <div className='whole-cart-window '>
 
-        <div className='cart-shop'>
-            <img src='https://api.grundfos.com/gpi/imaging/productgroup?pgcode=JPFAM&w=1000&h=750' alt='' />
-            <div className='details'>
-              <p>Ldasdasd safasfgasff asfasfasfasfasf.</p>
-              <span className='quantity'>Quantity: 1</span>
-              <span className='price'>Price: $23.5</span>
-
-            </div>
-            <div className='cancel'><i className="fas fa-window-close"></i></div>
-          </div>
-
-
-          <div className='cart-shop'>
-            <img src='https://api.grundfos.com/gpi/imaging/productgroup?pgcode=JPFAM&w=1000&h=750' alt='' />
-            <div className='details'>
-              <p>Ldasdasd safasfgasff asfasfasfasfasf.</p>
-              <span className='quantity'>Quantity: 1</span>
-              <span className='price'>Price: $23.5</span>
-
-            </div>
-            <div className='cancel'><i className="fas fa-window-close"></i></div>
-          </div>
-
-
-          <div className='cart-shop'>
-            <img src='https://api.grundfos.com/gpi/imaging/productgroup?pgcode=JPFAM&w=1000&h=750' alt='' />
-            <div className='details'>
-              <p>Ldasdasd safasfgasff asfasfasfasfasf.</p>
-              <span className='quantity'>Quantity: 1</span>
-              <span className='price'>Price: $23.5</span>
-
-            </div>
-            <div className='cancel'><i className="fas fa-window-close"></i></div>
-          </div>
-
-
-          <div className='cart-shop'>
-            <img src='https://api.grundfos.com/gpi/imaging/productgroup?pgcode=JPFAM&w=1000&h=750' alt='' />
-            <div className='details'>
-              <p>Ldasdasd safasfgasff asfasfasfasfasf.</p>
-              <span className='quantity'>Quantity: 1</span>
-              <span className='price'>Price: $23.5</span>
-
-            </div>
-            <div className='cancel'><i className="fas fa-window-close"></i></div>
-          </div>
-
-
-          <div className='cart-shop'>
-            <img src='https://api.grundfos.com/gpi/imaging/productgroup?pgcode=JPFAM&w=1000&h=750' alt='' />
-            <div className='details'>
-              <p>Ldasdasd safasfgasff asfasfasfasfasf.</p>
-              <span className='quantity'>Quantity: 1</span>
-              <span className='price'>Price: $23.5</span>
-
-            </div>
-            <div className='cancel'><i className="fas fa-window-close"></i></div>
-          </div>
+        {buy.map(x=><BuyProduct key={x._id} {...x}/>)}
 
         </div>
-
         </div>
         <hr />
         <div >
-
 
           <div className='subtotal'>Subtotal: $0.0</div>
 

@@ -27,11 +27,6 @@
 
 }
 
-/* .close{
-    font-size: 1rem;
-    font-weight: normal;
-    opacity: 1;
-} */
 .close:hover{
     background-color:rgb(189, 27, 27);
 }
@@ -46,22 +41,6 @@
     border-top-right-radius: 50px;
 }
 
-
-
-
-/* .table{
- width:  50px;
- background-color: rgba(255,255,255,0.13);
-    overflow: hidden;
-} */
-/* .table thead tr th{
-    letter-spacing: 0.08rem;
-    font-weight: normal;
-} */
-/* .table tr td,
-.table tr th{
-    font-weight: 600;
-} */
 h2{
    text-align: center;
     font-size:3rem;
@@ -84,46 +63,6 @@ h2{
 
 
 
-/* .table tbody td.item{
-    
-    font-size: 1.8rem;
-    font-weight: 600;
-    text-align: left;
-}
-
-
-.table tbody td.item img{
-    width: 100px;
-    height: 100px;
-    object-fit:fill;
-}
-.table thead th.header{
-    text-align: center;
-}
-
-.table tbody tr:last-child{
-    border: none;
-}
-
-.table tbody tr:hover{
-    transform: scale(1.004);
-    box-shadow: 5px 5px 10px white;
-    cursor: pointer;
-    overflow: hidden;
-    scroll-behavior: unset;
-}
-.table tbody tr:hover .close{
-    font-size: 1rem;
-    opacity: 1;
-}
-.table tbody tr:hover .close:hover{
-    color: #aaa;
-}
-
-.tag,.fa-shoppping-cart{
-    font-size: 0.5rem;
-} */
-
 #buybtn{
     margin-top: 30px;
     margin-left: 250px;
@@ -138,15 +77,6 @@ h2{
         cursor: pointer;
 } 
 
-/* .cart-box{
-    
-    width: 30% !important;
-    position:absolute;
-    left: 72%;
-    top:25%;
-    border:solid 1px white ;
-    padding: 10px 20px;
-} */
 
 
 /* виж за контейнер заавтоматичен размер */
@@ -161,37 +91,41 @@ h2{
 }
 
 
-/* .cart-icon{
-    text-align: right;
-} */
-
-.cart-shop{
+.cartShop{
 display:grid;
 grid-template-columns: 3fr 5fr 1fr;
 padding: 3% 2%;
 border-bottom: solid 1px lightgray;
+width:100% ;
+   mix-blend-mode: darken;
 }
 
-.cart-shop img{
+.cartShop>img{
     width:100% ;
+   mix-blend-mode: darken;
 }
 
-.cart-shop .details{
-    padding-left: 5%;
+.cartShop .details{
+    color: rgb(247, 244, 244);
+    font-size: 25px;
+   
+    font-weight: 550;
+    
+    padding-left: 15%;
 }
 
-.cart-shop h3{
+.cartShop h3{
     text-align: left;
     margin-bottom: 5%;
 }
 
-.cart-shop .price{
+.cartShop .price{
     display: block;
    
     margin-top:10%;
 }
 
-.cart-shop .quantity{
+.cartShop .quantity{
 display: block;
 margin-top: 5%;
 }
@@ -205,15 +139,7 @@ margin-top: 5%;
     cursor: pointer;
 }
 
-/* да се позиционира всичко след навигацията*/
-/* whole-cart-window{
-    border: solid green 1px;
-    border-top: none;
-    position: fixed;
-    top:12vh;
-    background-color: white;
-    margin-right:2% ;
-} */
+
 
 
 .non-empty::after{

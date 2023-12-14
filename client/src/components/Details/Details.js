@@ -6,12 +6,14 @@ import { productsServiceFactory } from '../../services/productsService';
 import { ProductCard } from '../Shop/ProductCard/ProductCard';
 import { useAuthContext } from '../../context/AuthContext';
 import { useProductContext } from '../../context/ProductContext';
+import { useBuyContext } from '../../context/BuyContext';
 
 
 export const Details = () => {
     const {type,productId}=useParams();
     const {isAuthenticated,isAdmin,userId}=useAuthContext();
-    const {onWish,onBuy}=useProductContext()
+    const {onWish}=useProductContext();
+    const {onBuy}=useBuyContext()
     
     const [product,setProduct]=useState([]);
     const [products,setProducts]=useState([]);
@@ -43,10 +45,10 @@ export const Details = () => {
         })
     }, [productId]);
 
-    const handleChange = (ev) => {
-        setQuantity(ev.target.value);
+    // const handleChange = (ev) => {
+    //     setQuantity(ev.target.value);
     
-      };
+    //   };
 
     return (
         <section className='page'>
@@ -62,7 +64,7 @@ export const Details = () => {
                         <p> {product.description}</p>
                     </div>
                     <div className='quantuty'>
-                    <label htmlFor="price">Quantity</label>
+                    {/* <label htmlFor="price">Quantity</label>
                     <input className="search-input searchbar-input"
                         type="number"
                         name='quantity'
@@ -71,12 +73,12 @@ export const Details = () => {
                         onChange={handleChange}
                         value={quantity}
                        
-                    />
+                    /> */}
                     </div>
                     {isAuthenticated && !isAdmin && (
                         <>
                         
-                        <Link to={`/shop`} className="buy_details btn1 " onClick={()=>{onBuy(productId,quantity,product.price,product.image)}}>Buy Now</Link>
+                        <Link to={`/shop`} className="buy_details btn1 " onClick={()=>{onBuy(type,productId,userId)}}>Buy Now</Link>
                         <Link  className="wish_details btn1" onClick={()=>{onWish(type,productId,userId)}} >Favorit</Link >
                         </>
                     )}

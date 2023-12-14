@@ -26,12 +26,14 @@ import { Favorit } from './components/Favorit/Favorit';
 import { Abault } from './components/Abault/Abault';
 import { ErrorPage } from './components/404/404';
 import { Search } from './components/Search/Search';
+import { BuyProvider } from './context/BuyContext';
 
 
 function App() {
   return (
     <AuthProvider>
       <ProductProvider>
+        <BuyProvider>
         <div >
           <Header />
           <main >
@@ -63,6 +65,7 @@ function App() {
 
           <Footer />
         </div>
+        </BuyProvider>
       </ProductProvider>
     </AuthProvider>
   );

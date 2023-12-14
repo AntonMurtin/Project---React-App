@@ -6,7 +6,6 @@ export const productsServiceFactory = (token) => {
     const request = requestFactory(token);
 
     const create = async (type, productData) => {
-
         const result = await request.post(`${url}/${type}/create`, productData);
 
         return result;
@@ -33,16 +32,8 @@ export const productsServiceFactory = (token) => {
 
     const del = (type, id) => request.delete(`${url}/${type}/${id}/delete`);
 
-    const removeWish = (type, id, userId) => request.put(`${url}/${type}/${id}/remove`, userId)
 
-    const wish = (type, id, userId) => request.put(`${url}/${type}/${id}/wish`, userId)
 
-    const getWish = async (type, userId) => {
-        const result = await request.get(`${url}/${type}/${userId}/wish`);
-        const products = Object.values(result);
-
-        return products;
-    };
 
     const search = async (type, data) => {
         const result = await request.put(`${url}/${type}/search`, data);
@@ -50,6 +41,37 @@ export const productsServiceFactory = (token) => {
 
         return products;
     }
+
+
+
+    
+    const wish = (type, id, userId) => request.put(`${url}/${type}/${id}/wish`, userId)
+    
+    const getWish = async (type, userId) => {
+        const result = await request.get(`${url}/${type}/${userId}/wish`);
+        const products = Object.values(result);
+        
+        return products;
+    };
+
+    const removeWish = (type, id, userId) => request.put(`${url}/${type}/${id}/removeWish`, userId)
+    
+
+
+    
+
+    const buy = (type, id, data) => request.put(`${url}/${type}/${id}/buyProduct`, data)
+
+    const getBuy=async (type, userId) => {
+        const result = await request.get(`${url}/${type}/${userId}/buyProduct`);
+        const products = Object.values(result);
+
+        return products;
+    };
+
+    const removeBuy = (type, id, userId) => request.put(`${url}/${type}/${id}/removeBuy`, userId);
+
+
     return {
         create,
         getAll,
@@ -60,5 +82,8 @@ export const productsServiceFactory = (token) => {
         getWish,
         removeWish,
         search,
+        buy,
+        getBuy,
+        removeBuy,
     };
 }

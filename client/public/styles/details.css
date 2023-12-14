@@ -15,8 +15,7 @@
 
 
 }
-
-.no-product {
+.no-products{
 	color: #f8f5f5;
 	font-family: 'Lobster', cursive;
 	font-size: 96px;
@@ -26,6 +25,17 @@
 	margin-top: 10rem;
 	text-shadow: 1px 0 0 #181717;
 }
+.noProduct {
+	color: #f8f5f5;
+	font-family: 'Lobster', cursive;
+	font-size: 96px;
+	font-weight: normal;
+	text-align: center;
+	margin:0 0 0px;
+	margin-top: 6rem;
+	text-shadow: 1px 0 0 #181717;
+}
+
 
 .product-details {
 	position: relative;
@@ -86,6 +96,7 @@
 #details img {
 	width: 110%;
 	height: 80%;
+	
 }
 
 
@@ -138,3 +149,4 @@
 	width: 50%;
 	padding-left: 1.8rem !important;
 }
+

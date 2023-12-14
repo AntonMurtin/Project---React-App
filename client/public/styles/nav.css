@@ -158,4 +158,14 @@ margin-top: -15px;
   text-align:right;
 }
 
+.no-product {
+	color: #f8f5f5;
+	font-family: 'Lobster', cursive;
+	font-size: 96px;
+	font-weight: normal;
+	line-height: 8px;
+	margin:0 0 0px;
+	margin-top: 10rem;
+	text-shadow: 1px 0 0 #181717;
+}
 

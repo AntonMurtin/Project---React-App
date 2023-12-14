@@ -9,7 +9,7 @@ export const Header = () => {
     
 
     const { isAuthenticated, isAdmin } = useAuthContext();
-    const { onSearch } = useProductContext()
+    const { onSearch } = useProductContext();
     const { values, onSubmit, changeHandler } = useForm({
         searchName: '',
     }, onSearch)

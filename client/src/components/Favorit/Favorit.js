@@ -59,7 +59,7 @@ export const Favorit = () => {
             <FavoritProducts key={x._id} {...x}/>
             )}
             {favorits.length===0 &&(
-                <h1 className="no-product">There are no Favorits yet!</h1>
+                <h1 className="no-products">There are no Favorits yet!</h1>
             )}
           
         </section>

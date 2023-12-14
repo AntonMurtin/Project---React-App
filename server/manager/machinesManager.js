@@ -10,6 +10,8 @@ exports.update = (cardId, cardData) => Machines.findByIdAndUpdate(cardId, cardDa
 
 exports.delete = (cardId) => Machines.findByIdAndDelete(cardId);
 
+exports.searchName = (searchName) => Machines.find({title:{$regex: searchName, $options: 'i'}});
+
 exports.searchWish = (userId) => Machines.find({wish:{$elemMatch:{_id:userId}}});
 
-exports.searchName = (searchName) => Machines.find({title:{$regex: searchName, $options: 'i'}});
+exports.searchBuy = (userId) => Machines.find({buy:{$elemMatch:{_id:userId}}});

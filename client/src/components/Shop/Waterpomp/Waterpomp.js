@@ -13,7 +13,7 @@ export const Waterpomp = () => {
             <ProductCard key={x._id} {...x}/>
             )}
             {waterpomps.length===0 &&(
-                <p className="no-comment">There are no Products yet!</p>
+                <p className="noProduct">There are no Products yet!</p>
             )}
             </div>
         </section>

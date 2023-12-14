@@ -27,14 +27,14 @@ router.post('/create', async (req, res) => {
     }
 });
 
-router.put('/search', async(req,res)=>{
-    const searchName=req.body.searchName;
-    
+router.put('/search', async (req, res) => {
+    const searchName = req.body.searchName;
+
     try {
-        if(searchName!=''){
-            const card=await machinesManager.searchName(searchName);
+        if (searchName != '') {
+            const card = await machinesManager.searchName(searchName);
             res.json(card);
-        }else{
+        } else {
             const cards = await machinesManager.getAll();
             res.json(cards);
         }
@@ -144,6 +144,59 @@ router.put('/:cardId/remove', async (req, res) => {
     }
 
 });
+router.put('/:cardId/buyProduct', async (req, res) => {
+    console.log('buy');
+    const cardId = req.params.cardId;
+    const userId = req.body.userId;
+    try {
+        const card = await machinesManager.getById(cardId);
 
+        const isWish = card.buy.filter(x => x._id == userId);
+
+        if (isWish.length > 0) {
+            throw new Error('You awredi buy the product')
+        }
+
+        card.buy.push(userId);
+        card.save();
+        res.json(card);
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        });
+    }
+
+});
+
+router.get('/:userId/buyProduct', async (req, res) => {
+    const userId = req.params.userId;
+
+    try {
+        const card = await machinesManager.searchBuy(userId);
+
+        res.json(card);
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        });
+    }
+});
+
+router.put('/:cardId/removeBuy', async (req, res) => {
+    const cardId = req.params.cardId;
+    const userId = req.body.userId;
+    try {
+        const card = await machinesManager.getById(cardId);
+
+        card.buy = card.buy.filter(x => x._id != userId);
+        card.save();
+        res.json(card);
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        });
+    }
+
+});
 
 module.exports = router;

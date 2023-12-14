@@ -11,7 +11,7 @@ export const Pipes=()=>{
                 <ProductCard key={x._id} {...x} />
             )}
             {pipes.length === 0 && (
-                <p className="no-comment">There are no Products yet!</p>
+                <p className="noProduct">There are no Products yet!</p>
             )}
         </section>
     )

@@ -129,7 +129,7 @@ router.get('/:userId/wish', async (req, res) => {
     }
 });
 
-router.put('/:cardId/remove', async (req, res) => {
+router.put('/:cardId/removeWish', async (req, res) => {
     const cardId = req.params.cardId;
     const userId = req.body.userId;
     try {
@@ -146,6 +146,58 @@ router.put('/:cardId/remove', async (req, res) => {
 
 });
 
+router.put('/:cardId/buyProduct', async (req, res) => {
+    console.log('buy');
+    const cardId = req.params.cardId;
+    const userId = req.body.userId;
+    try {
+        const card = await waterpompManager.getById(cardId);
 
+        const isWish = card.buy.filter(x => x._id == userId);
+
+        if (isWish.length > 0) {
+            throw new Error('You awredi buy the product')
+        }
+
+        card.buy.push(userId);
+        card.save();
+        res.json(card);
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        });
+    }
+
+});
+
+router.get('/:userId/buyProduct', async (req, res) => {
+    const userId = req.params.userId;
+
+    try {
+        const card = await waterpompManager.searchBuy(userId);
+
+        res.json(card);
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        });
+    }
+});
+router.put('/:cardId/removeBuy', async (req, res) => {
+    const cardId = req.params.cardId;
+    const userId = req.body.userId;
+    try {
+        const card = await waterpompManager.getById(cardId);
+
+        card.buy = card.buy.filter(x => x._id != userId);
+        card.save();
+        res.json(card);
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        });
+    }
+
+});
 
 module.exports = router;

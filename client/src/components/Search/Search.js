@@ -9,6 +9,7 @@ export const Search=()=>{
     const {search}=useProductContext();
 
     const [products,setProducts]=useState([]);
+    
 
     
     useEffect(() => {
@@ -49,7 +50,7 @@ export const Search=()=>{
             {products.length===0 &&(
                 <p className="no-comment">There are no Products yet!</p>
             )}
-            
+
         </section>
     )
 }
