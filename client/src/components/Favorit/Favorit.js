@@ -53,10 +53,13 @@ export const Favorit = () => {
 
     return (
         <section className="product-page" >
+           
             
-            
-            {favorits.map(x=>
+            {favorits &&favorits.map(x=>
             <FavoritProducts key={x._id} {...x}/>
+            )}
+            {favorits.length===0 &&(
+                <h1 className="no-product">There are no Favorits yet!</h1>
             )}
           
         </section>

@@ -7,8 +7,12 @@ export const Pipes=()=>{
 
     return (
         <section className="product-page">
-            {pipes.map(x=>
-                <ProductCard key={x._id} {...x}/>)}
+             {pipes && pipes.map(x =>
+                <ProductCard key={x._id} {...x} />
+            )}
+            {pipes.length === 0 && (
+                <p className="no-comment">There are no Products yet!</p>
+            )}
         </section>
     )
 }

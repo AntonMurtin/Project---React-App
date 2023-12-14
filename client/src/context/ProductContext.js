@@ -18,6 +18,7 @@ export const ProductProvider = ({
     const [machines, setMachines] = useState([]);
     const [pipes, setPipes] = useState([]);
     const [tools, setTools] = useState([]);
+    const [search, setSearch] = useState('')
 
     const productsService = productsServiceFactory()
 
@@ -80,31 +81,34 @@ export const ProductProvider = ({
         } catch (error) {
             alert(error.message);
         }
-    }
+    };
 
-    const onWish=async(type,productId,userId)=>{
-       
+    const onWish = async (type, productId, userId) => {
         try {
-            const result = await productsService.wish(type,productId,{userId});
+            const result = await productsService.wish(type, productId, { userId });
             setValue[type](state => state.map(x => x._id === productId ? result : x))
             navigate(`/shop/${type}`)
         } catch (error) {
             alert(error.message);
         }
-    }
+    };
 
-    const onRemove=async(type,productId,userId)=>{
-       
+    const onRemove = async (type, productId, userId) => {
+
         try {
-            const result = await productsService.removeWish(type,productId,{userId});
+            const result = await productsService.removeWish(type, productId, { userId });
             setValue[type](state => state.map(x => x._id === productId ? result : x))
             navigate(`/shop/${type}/${productId}/details`)
         } catch (error) {
             alert(error.message);
         }
+    };
+
+    const onSearch = (value) => {
+        setSearch(value);
+        navigate(`/search`)
     }
 
-    
 
     const contextValues = {
         waterpomps,
@@ -113,11 +117,12 @@ export const ProductProvider = ({
         machines,
         pipes,
         tools,
+        search,
         onCreateProduct,
         onEditProduct,
         onWish,
         onRemove,
-        
+        onSearch,
     }
     return (
         <ProductContext.Provider value={contextValues}>

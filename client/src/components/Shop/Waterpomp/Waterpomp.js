@@ -9,8 +9,11 @@ export const Waterpomp = () => {
     return (
         <section >
             <div className='product-page'>
-            {waterpomps.map(x=>
+            {waterpomps && waterpomps.map(x=>
             <ProductCard key={x._id} {...x}/>
+            )}
+            {waterpomps.length===0 &&(
+                <p className="no-comment">There are no Products yet!</p>
             )}
             </div>
         </section>

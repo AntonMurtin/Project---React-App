@@ -27,6 +27,25 @@ router.post('/create', async (req, res) => {
     }
 });
 
+router.put('/search', async(req,res)=>{
+    const searchName=req.body.searchName;
+    
+    try {
+        if(searchName!=''){
+            const card=await machinesManager.searchName(searchName);
+            res.json(card);
+        }else{
+            const cards = await machinesManager.getAll();
+            res.json(cards);
+        }
+    } catch (error) {
+        res.status(400).json({
+            message: error.message
+        });
+    }
+});
+
+
 router.get('/:cardId', async (req, res) => {
     const cardId = req.params.cardId;
     try {
@@ -125,5 +144,6 @@ router.put('/:cardId/remove', async (req, res) => {
     }
 
 });
+
 
 module.exports = router;

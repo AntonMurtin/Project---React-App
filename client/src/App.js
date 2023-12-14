@@ -25,6 +25,7 @@ import { Buy } from './components/Buy/Buy';
 import { Favorit } from './components/Favorit/Favorit';
 import { Abault } from './components/Abault/Abault';
 import { ErrorPage } from './components/404/404';
+import { Search } from './components/Search/Search';
 
 
 function App() {
@@ -35,10 +36,11 @@ function App() {
           <Header />
           <main >
             <Routes>
+
               <Route path='/' element={<Home />} />
-              <Route path='/abalt' element={<Abault />} />
-              <Route path='/buy' element={<Buy />} />
-              <Route path='/favorit' element={<Favorit />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/register' element={<Register />} />
+              <Route path='/create' element={<Create />} />
               <Route path='/shop' element={<Shop />} />
               <Route path='/shop/waterpomps' element={<Waterpomp />} />
               <Route path='/shop/systems' element={<IrrigationSystems />} />
@@ -49,9 +51,10 @@ function App() {
               <Route path='/shop/:type/:productId/details' element={<Details />} />
               <Route path='/shop/:type/:productId/edit' element={<Edit />} />
               <Route path='/shop/:type/:productId/delete' element={<Delete />} />
-              <Route path='/create' element={<Create />} />
-              <Route path='/login' element={<Login />} />
-              <Route path='/register' element={<Register />} />
+              <Route path='/search' element={<Search />} />
+              <Route path='/buy' element={<Buy />} />
+              <Route path='/favorit' element={<Favorit />} />
+              <Route path='/abalt' element={<Abault />} />
               <Route path='/logout' element={<Logout />} />
               <Route path='/*' element={<ErrorPage />} />
 
@@ -62,7 +65,6 @@ function App() {
         </div>
       </ProductProvider>
     </AuthProvider>
-
   );
 }
 

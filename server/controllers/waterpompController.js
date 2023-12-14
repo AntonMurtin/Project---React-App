@@ -5,9 +5,8 @@ const waterpompManager = require('../manager/waterpompManager');
 router.get('/', async (req, res) => {
 
     try {
-        const cards = await waterpompManager.getAll()
-
-        res.json(cards)
+        const cards = await waterpompManager.getAll();
+        res.json(cards);
     } catch (error) {
         res.status(400).json({
             message: error.message
@@ -24,6 +23,24 @@ router.post('/create', async (req, res) => {
     } catch (error) {
         console.log(error.message);
         res.json({
+            message: error.message
+        });
+    }
+});
+
+router.put('/search', async(req,res)=>{
+    const searchName=req.body.searchName;
+    
+    try {
+        if(searchName!=''){
+            const card=await waterpompManager.searchName(searchName);
+            res.json(card);
+        }else{
+            const cards = await waterpompManager.getAll();
+            res.json(cards);
+        }
+    } catch (error) {
+        res.status(400).json({
             message: error.message
         });
     }
@@ -128,5 +145,7 @@ router.put('/:cardId/remove', async (req, res) => {
     }
 
 });
+
+
 
 module.exports = router;

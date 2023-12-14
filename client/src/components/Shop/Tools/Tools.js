@@ -2,14 +2,16 @@ import { useProductContext } from "../../../context/ProductContext";
 import { ProductCard } from "../ProductCard/ProductCard";
 
 
-export const Tools=()=>{
+export const Tools = () => {
 
-    const {tools}=useProductContext()
-    return(
+    const { tools } = useProductContext()
+    return (
         <section className="product-page">
-
-            {tools.map(x=>
-            <ProductCard key={x._id} {...x}/>
+            {tools && tools.map(x =>
+                <ProductCard key={x._id} {...x} />
+            )}
+            {tools.length === 0 && (
+                <p className="no-comment">There are no Products yet!</p>
             )}
         </section>
     )

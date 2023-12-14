@@ -11,4 +11,5 @@ exports.update = (cardId, cardData) => Machines.findByIdAndUpdate(cardId, cardDa
 exports.delete = (cardId) => Machines.findByIdAndDelete(cardId);
 
 exports.searchWish = (userId) => Machines.find({wish:{$elemMatch:{_id:userId}}});
-// exports.searchName = (searchName) => Electronic.find({name:{$regex: searchName, $options: 'i'}});
+
+exports.searchName = (searchName) => Machines.find({title:{$regex: searchName, $options: 'i'}});

@@ -1,10 +1,19 @@
 
 import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../context/AuthContext';
+import { useProductContext } from '../../context/ProductContext';
+
+import { useForm } from '../../hooks/useForm';
 
 export const Header = () => {
-    const { isAuthenticated, username, isAdmin } = useAuthContext();
-    ;
+    
+
+    const { isAuthenticated, isAdmin } = useAuthContext();
+    const { onSearch } = useProductContext()
+    const { values, onSubmit, changeHandler } = useForm({
+        searchName: '',
+    }, onSearch)
+
     return (
 
         <header>
@@ -20,14 +29,20 @@ export const Header = () => {
                 </div>
                 <div className="list">
                     <div className="searchbar">
-                        <input className="search-input searchbar-input"
+                    <form  method='POST' onSubmit={onSubmit}>
+                        <input 
                             type="text"
-                            name="title"
+                            name="searchName"
                             placeholder="Search product..."
-                            id="title"
+                            value={values.searchName}
+                            onChange={changeHandler}
+                          
                         />
+                       
+                       <button id='btn' className="search"></button>
+                        </form>
                     </div>
-                        <Link to="/search" className="search"><i className="fa-solid fa-magnifying-glass"></i></Link>
+                    {/* <Link to="/search" className="search" type="submit" value="Submit" ><i className="fa-solid fa-magnifying-glass"></i></Link> */}
 
                     <Link to="/shop"><i className="fa-solid fa-shop"></i></Link>
                     {!isAuthenticated && (
@@ -51,7 +66,7 @@ export const Header = () => {
                             <Link to="/logout" ><i className="fa-solid fa-person-walking-dashed-line-arrow-right"></i></Link>
                         </>
                     )}
-                   
+
 
                 </div>
 

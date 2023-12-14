@@ -11,4 +11,5 @@ exports.update = (cardId, cardData) => Waterpomp.findByIdAndUpdate(cardId, cardD
 exports.delete = (cardId) => Waterpomp.findByIdAndDelete(cardId);
 
 exports.searchWish = (userId) => Waterpomp.find({wish:{$elemMatch:{_id:userId}}});
-// exports.searchName = (searchName) => Electronic.find({name:{$regex: searchName, $options: 'i'}});
+
+exports.searchName = (searchName) => Waterpomp.find({title:{$regex: searchName, $options: 'i'}});

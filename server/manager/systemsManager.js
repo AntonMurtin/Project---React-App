@@ -11,4 +11,5 @@ exports.update = (cardId, cardData) => IrrigationSystems.findByIdAndUpdate(cardI
 exports.delete = (cardId) => IrrigationSystems.findByIdAndDelete(cardId);
 
 exports.searchWish = (userId) => IrrigationSystems.find({wish:{$elemMatch:{_id:userId}}});
-// exports.searchName = (searchName) => Electronic.find({name:{$regex: searchName, $options: 'i'}});
+
+exports.searchName = (searchName) => IrrigationSystems.find({title:{$regex: searchName, $options: 'i'}});

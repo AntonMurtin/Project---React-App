@@ -7,8 +7,12 @@ export const PowerMachines=()=>{
 
     return (
         <section className="product-page">
-            {machines.map(x=>
-                <ProductCard key={x._id} {...x}/>)}
+            {machines && machines.map(x =>
+                <ProductCard key={x._id} {...x} />
+            )}
+            {machines.length === 0 && (
+                <p className="no-comment">There are no Products yet!</p>
+            )}
         </section>
     )
 }

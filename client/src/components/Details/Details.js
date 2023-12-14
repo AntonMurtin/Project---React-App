@@ -43,8 +43,8 @@ export const Details = () => {
         })
     }, [productId]);
 
-    const handleChange = event => {
-        setQuantity(event.target.value);
+    const handleChange = (ev) => {
+        setQuantity(ev.target.value);
     
       };
 

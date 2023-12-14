@@ -25,7 +25,7 @@
     left: 0;
     width: 100%;
     padding: 16px 20px 30px 20px;
-    display: flex;
+    display:flex;
     align-items: center;
     transition: 0.3s ease-out;
     backdrop-filter: blur(8px) brightness(0.8);
@@ -43,6 +43,7 @@
   }
  
   .sticky {
+
     position:fixed;
     top: 0;
     width: 100%;
@@ -75,11 +76,12 @@
    }
   }
   .search {
-    display: inline-block;
+    display: none;
     padding: 0;
     font-size: 0;
     background: none;
     border: none;
+    margin-bottom: px;
     margin-left: auto;
     filter: drop-shadow(0 0 5px rgba(0,0,0,.5));
     @media (min-width: 640px) {
@@ -112,8 +114,11 @@
 
   .searchbar {
     width: 200px;
-    display:inline-block;
+    display:block;
 
+}
+.searchbar input{
+  float:left
 }
 .searchbar-input, .searchbar-recent {
   width: 100%;
