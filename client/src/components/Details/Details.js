@@ -1,23 +1,23 @@
+import { useEffect, useState } from 'react';
 import { Link, useParams,useLocation } from 'react-router-dom'
 
-
-import { useEffect, useState } from 'react';
 import { productsServiceFactory } from '../../services/productsService';
-import { ProductCard } from '../Shop/ProductCard/ProductCard';
 import { useAuthContext } from '../../context/AuthContext';
-import { useProductContext } from '../../context/ProductContext';
 import { useBuyContext } from '../../context/BuyContext';
+import { useFavoritContext } from '../../context/FavoritContext';
+
+import { ProductCard } from '../Shop/ProductCard/ProductCard';
+
 
 
 export const Details = () => {
     const {type,productId}=useParams();
     const {isAuthenticated,isAdmin,userId}=useAuthContext();
-    const {onWish}=useProductContext();
+    const {onWish}=useFavoritContext();
     const {onBuy}=useBuyContext()
     
     const [product,setProduct]=useState([]);
     const [products,setProducts]=useState([]);
-    const [quantity,setQuantity]=useState(1)
 
     const allProducts=products.filter(x=>x._id!==productId);
 
@@ -44,11 +44,6 @@ export const Details = () => {
                 setProduct(productData);
         })
     }, [productId]);
-
-    // const handleChange = (ev) => {
-    //     setQuantity(ev.target.value);
-    
-    //   };
 
     return (
         <section className='page'>
@@ -78,7 +73,7 @@ export const Details = () => {
                     {isAuthenticated && !isAdmin && (
                         <>
                         
-                        <Link to={`/shop`} className="buy_details btn1 " onClick={()=>{onBuy(type,productId,userId)}}>Buy Now</Link>
+                        <Link  className="buy_details btn1 " onClick={()=>{onBuy(type,productId,userId)}}>Buy Now</Link>
                         <Link  className="wish_details btn1" onClick={()=>{onWish(type,productId,userId)}} >Favorit</Link >
                         </>
                     )}

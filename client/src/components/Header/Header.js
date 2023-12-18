@@ -1,13 +1,15 @@
-
 import { Link } from 'react-router-dom';
-import { useAuthContext } from '../../context/AuthContext';
-import { useProductContext } from '../../context/ProductContext';
 
 import { useForm } from '../../hooks/useForm';
 
-export const Header = () => {
-    
+import { useProductContext } from '../../context/ProductContext';
+import { useAuthContext } from '../../context/AuthContext';
+import { useBuyContext } from '../../context/BuyContext';
+import { useFavoritContext } from '../../context/FavoritContext';
 
+export const Header = () => {
+    const {favorits}=useFavoritContext()
+    const {products}=useBuyContext()
     const { isAuthenticated, isAdmin } = useAuthContext();
     const { onSearch } = useProductContext();
     const { values, onSubmit, changeHandler } = useForm({
@@ -33,7 +35,7 @@ export const Header = () => {
                         <input 
                             type="text"
                             name="searchName"
-                            placeholder="Search product..."
+                            placeholder="Serch..."
                             value={values.searchName}
                             onChange={changeHandler}
                           
@@ -60,17 +62,20 @@ export const Header = () => {
                     )}
                     {isAuthenticated && !isAdmin && (
                         <>
-
-                            <Link to="/favorit" className='favorit-icon'><i className="fa-solid fa-heart"></i></Link>
-                            <Link to="/buy" className='cart-icon'><i className="fa-solid fa-cart-shopping  non-empty"></i></Link>
+                         
+                            <Link to="/favorit" className='favorit-icon'><i className="fa-solid fa-heart"><i className='non-empty'>{favorits.length}</i></i></Link>
+                            <Link to="/buy" className='cart-icon'><i className="fa-solid fa-cart-shopping "><i className='non-empty'>{products.length}</i></i></Link>
+                            
                             <Link to="/logout" ><i className="fa-solid fa-person-walking-dashed-line-arrow-right"></i></Link>
                         </>
                     )}
 
-
+    
                 </div>
 
             </nav>
         </header>
     );
 };
+
+{/* <i className="fa-solid fa-cart-shopping  non-empty ">{products.length}</i> */}

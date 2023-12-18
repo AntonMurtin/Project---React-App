@@ -29,9 +29,14 @@ const PartsShema = new mongoose.Schema({
         maxLength: [5000, 'Description shoud be max 5000 characters']
        
     },
+    quantity: {
+        type: Number,
+        
+    },
     buy: [{
         user: {
             type: mongoose.Types.ObjectId,
+            unique: true,
             ref: 'User'
         },
     }],

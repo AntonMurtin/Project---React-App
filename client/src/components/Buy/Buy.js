@@ -5,7 +5,7 @@ import { BuyProduct } from "./BuyProduct/BuyProduct"
 
 export const Buy = () => {
 
-  const {products}=useBuyContext();
+  const {products, totalPrice}=useBuyContext();
   
   const [buy,setBuy]=useState([]);
   useEffect(()=>{
@@ -47,17 +47,13 @@ setBuy(products)
           Shoping Bag</h2>
        
         <hr />
-        <div className='cart-box'>
-        <div className='whole-cart-window '>
 
         {buy.map(x=><BuyProduct key={x._id} {...x}/>)}
-
-        </div>
-        </div>
+    
         <hr />
         <div >
 
-          <div className='subtotal'>Subtotal: $0.0</div>
+          <div className='subtotal'>Subtotal: ${totalPrice}</div>
 
           <button id='buybtn'>BUY</button>
         </div>

@@ -127,7 +127,7 @@ router.get('/:userId/wish', async (req, res) => {
     }
 });
 
-router.put('/:cardId/remove', async (req, res) => {
+router.put('/:cardId/removeWish', async (req, res) => {
     const cardId = req.params.cardId;
     const userId = req.body.userId;
     try {
@@ -145,7 +145,6 @@ router.put('/:cardId/remove', async (req, res) => {
 });
 
 router.put('/:cardId/buyProduct', async (req, res) => {
-    console.log('buy');
     const cardId = req.params.cardId;
     const userId = req.body.userId;
     try {

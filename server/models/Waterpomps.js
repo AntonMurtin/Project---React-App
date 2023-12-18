@@ -22,6 +22,10 @@ const WaterpompShema = new mongoose.Schema({
         min: [1, 'Price must min 1 and max 100'],
 
     },
+    quantity: {
+        type: Number,
+        
+    },
     description: {
         type: String,
         required: [true, 'Description is required!'],
@@ -31,13 +35,13 @@ const WaterpompShema = new mongoose.Schema({
     buy: [{
         user: {
             type: mongoose.Types.ObjectId,
+            unique: true,
             ref: 'User'
         },
     }],
     wish: [{
         user: {
             type: mongoose.Types.ObjectId,
-            unique: true,
             ref: 'User'
         },
     }],

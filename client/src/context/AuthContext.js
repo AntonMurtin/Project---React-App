@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 import { authServiceFactoty } from '../services/authService';
+import { useNotification } from './NotificationContext';
 
 export const AuthContext = createContext();
 
@@ -17,7 +18,7 @@ export const AuthProvider = ({
     const navigate = useNavigate();
 
     const authService = authServiceFactoty(auth.accessToken)
-
+    const dispatch=useNotification()
 
     const onLoginSubmit = async (data) => {
         try {
@@ -27,7 +28,11 @@ export const AuthProvider = ({
 
             navigate('/shop');
         } catch (error) {
-            alert(error.message);
+            dispatch({
+                type:'ERROR',
+                message:error.message,
+            })
+           
         }
     };
 
@@ -42,8 +47,11 @@ export const AuthProvider = ({
 
             navigate('/shop');
         } catch (error) {
-            alert(error.message);
-        }
+            dispatch({
+                type:'ERROR',
+                message:error.message,
+            })
+        }  
     };
 
     const onLogout = async () => {

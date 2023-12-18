@@ -62,7 +62,7 @@ export const Register = () => {
                     onChange={changeHandler}
                 />
 
-                <button id='btn'>Register</button>
+                <button className='btn-log-reg'>Register</button>
 
 
             </form>

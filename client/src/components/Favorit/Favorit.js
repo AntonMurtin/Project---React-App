@@ -4,50 +4,52 @@ import { useAuthContext } from "../../context/AuthContext";
 // import { useProductContext } from "../../context/ProductContext";
 import { FavoritProducts } from "./FavoritProducts/FavoritProducts";
 import { useLocation } from "react-router-dom";
+import { useFavoritContext } from "../../context/FavoritContext";
 
 
 
 
 export const Favorit = () => {
 
-    const productsService = productsServiceFactory();
-    const { userId } = useAuthContext()
+    // const productsService = productsServiceFactory();
+    // const { userId } = useAuthContext()
    
 
-    const [favorits, setFavorits] = useState([]);
+    // const [favorits, setFavorits] = useState([]);
     const { pathname } = useLocation();
+    const {favorits}=useFavoritContext()
     
       useEffect(() => {
         window.scrollTo(0, 0);
       }, [pathname]);
 
-    useEffect(() => {
-        Promise.all([
-            productsService.getWish('waterpomps', userId),
-            productsService.getWish('systems', userId),
-            productsService.getWish('parts', userId),
-            productsService.getWish('machines', userId),
-            productsService.getWish('pipes', userId),
-            productsService.getWish('tools', userId),
+    // useEffect(() => {
+    //     Promise.all([
+    //         productsService.getWish('waterpomps', userId),
+    //         productsService.getWish('systems', userId),
+    //         productsService.getWish('parts', userId),
+    //         productsService.getWish('machines', userId),
+    //         productsService.getWish('pipes', userId),
+    //         productsService.getWish('tools', userId),
 
-        ]).then(([
-            waterpompsData,
-            systemsData,
-            partsData,
-            machinesData,
-            pipesData,
-            toolsData,
-        ]) => {
-            setFavorits([
-                ...waterpompsData,
-                ...systemsData,
-                ...partsData,
-                ...machinesData,
-                ...pipesData,
-                ...toolsData,]
-            );
-        })
-    }, [pathname]);
+    //     ]).then(([
+    //         waterpompsData,
+    //         systemsData,
+    //         partsData,
+    //         machinesData,
+    //         pipesData,
+    //         toolsData,
+    //     ]) => {
+    //         setFavorits([
+    //             ...waterpompsData,
+    //             ...systemsData,
+    //             ...partsData,
+    //             ...machinesData,
+    //             ...pipesData,
+    //             ...toolsData,]
+    //         );
+    //     })
+    // }, [pathname]);
 
  
 

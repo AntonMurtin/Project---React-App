@@ -28,11 +28,17 @@ const IrrigationSystemsShema = new mongoose.Schema({
         minLength: [5, 'Description shoud be at least 5 characters'],
         maxLength: [5000, 'Description shoud be max 5000 characters']
     },
+    quantity: {
+        type: Number,
+        
+    },
     buy: [{
         user: {
             type: mongoose.Types.ObjectId,
+            unique: true,
             ref: 'User'
         },
+
     }],
     wish: [{
         user: {

@@ -21,7 +21,7 @@ export const Login = () => {
                 <input
                     type="text"
                     placeholder="Email"
-                    id="email"
+                    
                     name='email'
                     value={values.username}
                     onChange={changeHandler}
@@ -31,13 +31,13 @@ export const Login = () => {
                 <input
                     type="password"
                     placeholder="Password"
-                    id="password"
+                    
                     name='password'
                     value={values.password}
                     onChange={changeHandler}
                 />
 
-                <button id='btn'>Log In</button>
+                <button className='btn-log-reg'>Log In</button>
 
             </form>
         </div>
