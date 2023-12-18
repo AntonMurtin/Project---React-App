@@ -4,7 +4,7 @@ import { useBuyContext } from "../../../context/BuyContext";
 
 export const BuyProduct = (product) => {
     const { userId } = useAuthContext();
-    const { onRemove, incQty, decQty} = useBuyContext()
+    const { onRemove, changeQty} = useBuyContext()
   const id=product._id
    
     return (
@@ -16,7 +16,7 @@ export const BuyProduct = (product) => {
                 <div className="qty" data-phino="Qty">
                     <button type="button" 
                     className="btn btn-qty qty-minus"
-                    onClick={()=>incQty(id,'dec')}
+                    onClick={()=>changeQty(id,'dec')}
                     ><i className="fas fa-minus"></i></button>
                     {/* <input className="hidden" 
                     type="number" 
@@ -28,7 +28,7 @@ export const BuyProduct = (product) => {
                     <span className="qty-value">{product.quantity}</span>
                     <button type="button" 
                     className="btn btn-qty qty-plus"
-                    onClick={()=>incQty(id,'inc')}
+                    onClick={()=>changeQty(id,'inc')}
                     ><i className="fas fa-plus"></i></button>
                 <span className='price'>Price: ${Number(product.price)*product.quantity}</span>
                 </div>

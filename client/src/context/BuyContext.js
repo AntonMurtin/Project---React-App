@@ -21,7 +21,7 @@ export const BuyProvider = ({
     const [products, setProducts] = useState([]);
     const [totalPrice, setTotalprice] = useState(0.0);
     const [totalquantities, setTotalquantities] = useState();
-    const [qty, setQty] = useState([]);
+   
 
     let foundProduct;
     useEffect(() => {
@@ -50,11 +50,23 @@ export const BuyProvider = ({
                     ...pipesData,
                     ...toolsData,
                 ]);
-
+               
             })
         }
     }, [userId]);
 
+    // useEffect(()=>{
+    //     if(products.length>0){
+    //         getData(products)
+    //     }
+    // },[userId])
+
+    // const getData=(products)=>{
+    //     products.forEach(element => {
+    //         setTotalprice(x=>x+=element.price);
+            
+    //     });
+    // }
 
     const onBuy = async (type, productId, userId) => {
         try {
@@ -90,42 +102,34 @@ export const BuyProvider = ({
             })
         }
     };
-    const incQty = (id, value) => {
+    const changeQty = (id, value) => {
         foundProduct = products.find((item) => item._id === id);
        
         
         if (value === 'inc') {
            
             foundProduct.quantity += 1;
-            setTotalprice(x=>x+Number(foundProduct.price))
-            console.log(foundProduct.quantity);
+            setTotalprice(x=>x+foundProduct.price)
+           
         } else if (value === 'dec')
             if (foundProduct.quantity - 1 > 0){
                 foundProduct.quantity -= 1;
-                setTotalprice(x=>x-Number(foundProduct.price))
+                setTotalprice(x=>x-foundProduct.price)
             }
          
            
        setProducts(state => state.map(x => x._id === id ? foundProduct : x))
     }
 
-    const decQty = () => {
-        setQty((state) => {
-            if (state - 1 < 1) return 1;
-
-            return state - 1;
-        })
-    }
+    
 
     const contextValues = {
         products,
         totalPrice,
         totalquantities,
-        qty,
         onBuy,
         onRemove,
-        incQty,
-        decQty,
+        changeQty,
     };
 
     return (

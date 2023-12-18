@@ -12,7 +12,7 @@ export const ProductProvider = ({
 }) => {
 
     const navigate = useNavigate();
-    const dispatch=useNotification()
+    const dispatch = useNotification()
 
     const [waterpomps, setWaterpomps] = useState([]);
     const [systems, setSystems] = useState([]);
@@ -20,7 +20,8 @@ export const ProductProvider = ({
     const [machines, setMachines] = useState([]);
     const [pipes, setPipes] = useState([]);
     const [tools, setTools] = useState([]);
-    const [search,setSearch]=useState(null)
+    const [product, setProduct] = useState([]);
+    const [search, setSearch] = useState(null)
 
     const productsService = productsServiceFactory()
 
@@ -47,6 +48,14 @@ export const ProductProvider = ({
             setMachines(machinesData);
             setPipes(pipesData);
             setTools(toolsData);
+            setProduct([
+                waterpompsData[0],
+                systemsData[0],
+                partsData[0],
+                machinesData[0],
+                pipesData[0],
+                toolsData[0],
+            ])
         })
     }, []);
 
@@ -62,7 +71,7 @@ export const ProductProvider = ({
 
     const onCreateProduct = async (data) => {
         const type = data.type;
-        data.quantity=0;
+        data.quantity = 0;
         try {
 
             const newProduct = await productsService.create(type, data);
@@ -92,16 +101,30 @@ export const ProductProvider = ({
         }
     };
 
-    
+    const onDelete=async(type,productId)=>{
+       
+        try {
+            await productsService.del(type,productId);
+            setValue[type](state => state.filter(x => x._id !== productId))
+            navigate(`/shop/${type}`)
+        } catch (error) {
+            dispatch({
+                type: 'ERROR',
+                message: error.message,
+            })
+        }
+    }
 
-    const onSearch=(value)=>{
+
+
+
+    const onSearch = (value) => {
         setSearch(value);
-        console.log(value);
-        
+
         navigate(`/search`)
 
     }
-    
+
 
     const contextValues = {
         waterpomps,
@@ -110,9 +133,11 @@ export const ProductProvider = ({
         machines,
         pipes,
         tools,
+        product,
         search,
         onCreateProduct,
         onEditProduct,
+        onDelete,
         onSearch,
     }
     return (

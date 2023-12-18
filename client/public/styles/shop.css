@@ -140,3 +140,8 @@ background-image: url('../images/tools.jpg');
     font-weight: 500;
     line-height: normal;
 }
+
+img{
+  width:100% ;
+ mix-blend-mode: darken;
+}

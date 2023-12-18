@@ -16,7 +16,7 @@ export const Notifications = (props) => {
 
                 return prev;
             })
-            },20)
+            },15)
             console.log();
 
             setIntervalId(id);
@@ -36,7 +36,7 @@ export const Notifications = (props) => {
                 type: 'REMOVE_NOTIFICATION',
                 id: props.id
             })
-        }, 400)
+        }, 300)
     }
 
 

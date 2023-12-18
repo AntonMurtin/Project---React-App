@@ -68,22 +68,13 @@ function App() {
                       <Route path='/search' element={<Search />} />
                     </Route>
 
+                    <Route element={<ProductAdmin />}>
+                      <Route path='/create' element={<Create />} />
+                      <Route path='/shop/:type/:productId/edit' element={<Edit />} />
+                      <Route path='/shop/:type/:productId/delete' element={<Delete />} />
+                    </Route>
+
                     <Route element={<RouteGuard />}>
-                      <Route path='/create' element={
-                        <ProductAdmin>
-                          <Create />
-                        </ProductAdmin>
-                      } />
-                      <Route path='/shop/:type/:productId/edit' element={
-                        <ProductAdmin>
-                          <Edit />
-                        </ProductAdmin>
-                      } />
-                      <Route path='/shop/:type/:productId/delete' element={
-                        <ProductAdmin>
-                          <Delete />
-                        </ProductAdmin>
-                      } />
                       <Route path='/buy' element={<Buy />} />
                       <Route path='/favorit' element={<Favorit />} />
                       <Route path='/logout' element={<Logout />} />

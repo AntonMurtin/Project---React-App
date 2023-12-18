@@ -44,11 +44,11 @@ export const Search=()=>{
     return(
         <section className="product-page">
 
-            {products && products.map(x=>
+            { products.map(x=>
             <ProductCard key={x._id} {...x}/>
             )}
             {products.length===0 &&(
-                <p className="no-comment">There are no Products yet!</p>
+                <p className="noProduct">There are no Products yet!</p>
             )}
 
         </section>

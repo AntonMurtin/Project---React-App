@@ -72,7 +72,7 @@ export const Create = () => {
                         onChange={changeHandler}
                     />
 
-                    <button id='btn'>Create</button>
+                    <button className='btn-log-reg'>Create</button>
 
                 </form>
             </div>

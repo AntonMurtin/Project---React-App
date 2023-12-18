@@ -32,7 +32,8 @@
     -webkit-backdrop-filter: blur(8px) brightness(0.8);
     text-shadow: 0 0 5px rgba(0,0,0,0.5);
     color: white;
-    font-size: 25px;
+    font-size: 23px;
+    font-weight: 599;
      
     @media (min-width: 640px) {
       padding: 16px 50px 30px 50px;
@@ -132,6 +133,7 @@
     color: white;
 
     font-size: 15px;
+    
 .fa-phone{
   margin-right: 40px;
 }   

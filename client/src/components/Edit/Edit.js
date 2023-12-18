@@ -86,7 +86,7 @@ export const Edit = () => {
                         onChange={changeHandler}
                     />
 
-                    <button id='btn'>Edit</button>
+                    <button className="btn-log-reg">Edit</button>
 
                 </form>
             </div>

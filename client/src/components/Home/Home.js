@@ -1,9 +1,12 @@
 import { useEffect } from 'react';
 import {Link , useLocation} from 'react-router-dom'
+import { useProductContext } from '../../context/ProductContext';
+import { ProductCard } from '../Shop/ProductCard/ProductCard';
 
 export const Home=()=>{
 
     const { pathname } = useLocation();
+    const {product}=useProductContext()
     
       useEffect(() => {
         window.scrollTo(0, 0);
@@ -36,7 +39,9 @@ export const Home=()=>{
 
             {/* </div> */}
         </div>
-
+        { product.map(x=>
+            <ProductCard key={x._id} {...x}/>
+            )}
      </section>
 
        

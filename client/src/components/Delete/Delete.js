@@ -3,18 +3,19 @@ import { useParams, Link } from "react-router-dom";
 
 import { useAuthContext } from "../../context/AuthContext"
 import { productsServiceFactory } from "../../services/productsService";
+import { useProductContext } from "../../context/ProductContext";
 
 
 
 
 export const Delete = () => {
     const productsService = productsServiceFactory();
+    const {onDelete}=useProductContext()
     const { type, productId } = useParams();
     const { isAdmin } = useAuthContext();
     const [product, setProduct] = useState([])
 
-    console.log(type);
-    console.log(productId);
+
     
     useEffect(() => {
         productsService.getBiId(type, productId)
@@ -22,20 +23,12 @@ export const Delete = () => {
                 setProduct(result)
             })
     }, [productId])
-    console.log(product);
-
-    const onDelete=async()=>{
-        console.log('delete');
-        try {
-            await productsService.del(type,productId)
-            
-        } catch (error) {
-            console.log(error.message);
-        }
-    }
+   
 
     return (
+        <section className="product-page">
 
+        
 
         <div id="details">
 
@@ -45,7 +38,7 @@ export const Delete = () => {
 
                 {isAdmin && (
                     <>
-                        <Link to={`/shop`} className="buy_details btn1" onClick={onDelete} >Delete</Link>
+                        <Link to={`/shop`} className="buy_details btn1" onClick={()=>onDelete(type, productId)} >Delete</Link>
                         <Link to={`/shop/${type}/${productId}/details`} className="wish_details btn1"> Cancel </Link>
                     </>
                 )}
@@ -59,6 +52,6 @@ export const Delete = () => {
             </div>
 
         </div>
-
+        </section>
     )
 }
