@@ -18,7 +18,7 @@ export const AuthProvider = ({
     const navigate = useNavigate();
 
     const authService = authServiceFactoty(auth.accessToken)
-    const dispatch=useNotification()
+    const dispatch = useNotification()
 
     const onLoginSubmit = async (data) => {
         try {
@@ -28,11 +28,14 @@ export const AuthProvider = ({
 
             navigate('/shop');
         } catch (error) {
-            dispatch({
-                type:'ERROR',
-                message:error.message,
+            error.message.map(x => {
+                dispatch({
+                    type: 'ERROR',
+                    message: x,
+                })
             })
-           
+            navigate('/login');
+
         }
     };
 
@@ -40,22 +43,28 @@ export const AuthProvider = ({
 
         try {
             const result = await authService.register(values);
-          
+
 
 
             setAuth(result);
 
             navigate('/shop');
         } catch (error) {
-            dispatch({
-                type:'ERROR',
-                message:error.message,
+            error.message.map(x => {
+                dispatch({
+                    type: 'ERROR',
+                    message: x,
+                })
             })
-        }  
+
+        }
     };
 
     const onLogout = async () => {
-        //  authService.logout();
+        dispatch({
+            type: 'SUCCESS',
+            message: 'You have successfully signed out.',
+        })
 
         setAuth({});
         navigate('/');

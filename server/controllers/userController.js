@@ -1,5 +1,6 @@
 const router=require('express').Router();
 const userManager=require('../manager/userManager')
+const {errorMessages} =require('../utils/errorHelper')
 
 
 router.post('/register', async(req,res)=>{
@@ -10,7 +11,7 @@ router.post('/register', async(req,res)=>{
         res.json(result)
     } catch (error) {
        res.status(400).json({
-        message:error.message
+        message:errorMessages(error)
        })
     }
 });
@@ -22,7 +23,7 @@ router.post('/login',async (req,res)=>{
          res.json(result);
     } catch (error) {
         res.status(400).json({
-            message:error.message
+            message:errorMessages(error)
            })
     }
 });

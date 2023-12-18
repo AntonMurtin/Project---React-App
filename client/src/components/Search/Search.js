@@ -8,7 +8,7 @@ export const Search=()=>{
     const productsService=productsServiceFactory()
     const {search}=useProductContext();
 
-    const [products,setProducts]=useState([]);
+    const [products,setProducts]=useState(['']);
     
 
     

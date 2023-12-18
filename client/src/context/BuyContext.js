@@ -1,9 +1,10 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 import { productsServiceFactory } from "../services/productsService";
 
 import { useAuthContext } from "./AuthContext";
+import { useNotification } from "./NotificationContext";
 
 
 export const BuyContext = createContext();
@@ -11,9 +12,9 @@ export const BuyContext = createContext();
 export const BuyProvider = ({
     children,
 }) => {
-
+    const dispatch = useNotification()
    
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const productsService = productsServiceFactory();
     const { userId } = useAuthContext();
 
@@ -59,9 +60,15 @@ export const BuyProvider = ({
         try {
             const result = await productsService.buy(type, productId, { userId });
             setProducts(state => [...state, result])
-
+            dispatch({
+                type: 'SUCCESS',
+                message: `You successfully add ${result.title}.`,
+            })
         } catch (error) {
-            alert(error.message);
+                dispatch({
+                    type: 'ERROR',
+                    message: error.message,
+                })
         }
     };
 
@@ -72,9 +79,15 @@ export const BuyProvider = ({
         try {
             await productsService.removeBuy(type, productId, { userId });
             setProducts(state => state.filter(x => x._id !== productId))
-            navigate(`/buy`)
+            dispatch({
+                type: 'SUCCESS',
+                message: `You successfully remove ${foundProduct.title}.`,
+            })
         } catch (error) {
-            alert(error.message);
+            dispatch({
+                type: 'ERROR',
+                message: error.message,
+            })
         }
     };
     const incQty = (id, value) => {

@@ -10,17 +10,6 @@ export const NotificationProvider = ({
 
     const [state, dispatch] = useReducer(notificationReduser,[])
 
-    // dispatch({
-    //     type: 'ADD_NOTIFICATION',
-    //     payload: {
-    //         id: v4(),
-    //         type: 'SUCCESS',
-    //         message: ' ioaisoiasfj'
-    //     }
-    // })
-
-
-console.log(state);
     return (
         <NotificationContext.Provider value={dispatch}>
             <div className="notification-wrapper">

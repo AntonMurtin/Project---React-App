@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 
 import { productsServiceFactory } from '../services/productsService';
+import { useNotification } from './NotificationContext';
 
 const ProductContext = createContext()
 
@@ -10,7 +11,8 @@ export const ProductProvider = ({
     children
 }) => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const dispatch=useNotification()
 
     const [waterpomps, setWaterpomps] = useState([]);
     const [systems, setSystems] = useState([]);
@@ -68,7 +70,10 @@ export const ProductProvider = ({
             setValue[type](state => [...state, newProduct]);
             navigate(`/shop/${type}`)
         } catch (error) {
-            alert(error.message);
+            dispatch({
+                type: 'ERROR',
+                message: error.message,
+            })
         }
     };
 
@@ -80,7 +85,10 @@ export const ProductProvider = ({
             setValue[type](state => state.map(x => x._id === data._id ? result : x))
             navigate(`/shop/${type}/${id}/details`)
         } catch (error) {
-            alert(error.message);
+            dispatch({
+                type: 'ERROR',
+                message: error.message,
+            })
         }
     };
 
@@ -88,7 +96,10 @@ export const ProductProvider = ({
 
     const onSearch=(value)=>{
         setSearch(value);
+        console.log(value);
+        
         navigate(`/search`)
+
     }
     
 

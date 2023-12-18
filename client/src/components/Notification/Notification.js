@@ -59,7 +59,7 @@ export const Notifications = (props) => {
             className={`notification-item ${props.type === 'SUCCESS' ? 'success' : 'error'
                 } ${exit ? 'exit' : ''}`}>
             <p>{props.message}</p>
-            <button className="notification-btn" onClick={() => setExit(true)}>exit</button>
+            {/* <button className="notification-btn" onClick={() => setExit(true)}></button> */}
             <div className={"bar"} style={{ width: `${width}%` }} >
 
             </div>
