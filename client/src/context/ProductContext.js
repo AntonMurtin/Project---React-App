@@ -20,7 +20,7 @@ export const ProductProvider = ({
     const [machines, setMachines] = useState([]);
     const [pipes, setPipes] = useState([]);
     const [tools, setTools] = useState([]);
-    const [search,setSearch]=useState([])
+    const [search,setSearch]=useState(null)
 
     const productsService = productsServiceFactory()
 

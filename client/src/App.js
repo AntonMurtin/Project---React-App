@@ -29,6 +29,10 @@ import { Search } from './components/Search/Search';
 import { BuyProvider } from './context/BuyContext';
 import { FavoritProvider } from './context/FavoritContext';
 import { NotificationProvider } from './context/NotificationContext';
+import { RouteGuard } from './components/common/RouteGuard';
+import { ProductAdmin } from './components/common/ProductAdmin';
+import { SearchGuard } from './components/common/SearchGuard';
+import { UserGuard } from './components/common/UserGuard';
 
 
 function App() {
@@ -44,9 +48,12 @@ function App() {
                   <Routes>
 
                     <Route path='/' element={<Home />} />
-                    <Route path='/login' element={<Login />} />
-                    <Route path='/register' element={<Register />} />
-                    <Route path='/create' element={<Create />} />
+
+                    <Route element={<UserGuard />}>
+                      <Route path='/login' element={<Login />} />
+                      <Route path='/register' element={<Register />} />
+                    </Route>
+
                     <Route path='/shop' element={<Shop />} />
                     <Route path='/shop/waterpomps' element={<Waterpomp />} />
                     <Route path='/shop/systems' element={<IrrigationSystems />} />
@@ -55,13 +62,33 @@ function App() {
                     <Route path='/shop/pipes' element={<Pipes />} />
                     <Route path='/shop/tools' element={<Tools />} />
                     <Route path='/shop/:type/:productId/details' element={<Details />} />
-                    <Route path='/shop/:type/:productId/edit' element={<Edit />} />
-                    <Route path='/shop/:type/:productId/delete' element={<Delete />} />
-                    <Route path='/search' element={<Search />} />
-                    <Route path='/buy' element={<Buy />} />
-                    <Route path='/favorit' element={<Favorit />} />
                     <Route path='/abalt' element={<Abault />} />
-                    <Route path='/logout' element={<Logout />} />
+
+                    <Route element={<SearchGuard />}>
+                      <Route path='/search' element={<Search />} />
+                    </Route>
+
+                    <Route element={<RouteGuard />}>
+                      <Route path='/create' element={
+                        <ProductAdmin>
+                          <Create />
+                        </ProductAdmin>
+                      } />
+                      <Route path='/shop/:type/:productId/edit' element={
+                        <ProductAdmin>
+                          <Edit />
+                        </ProductAdmin>
+                      } />
+                      <Route path='/shop/:type/:productId/delete' element={
+                        <ProductAdmin>
+                          <Delete />
+                        </ProductAdmin>
+                      } />
+                      <Route path='/buy' element={<Buy />} />
+                      <Route path='/favorit' element={<Favorit />} />
+                      <Route path='/logout' element={<Logout />} />
+                    </Route>
+
                     <Route path='/*' element={<ErrorPage />} />
 
                   </Routes>
