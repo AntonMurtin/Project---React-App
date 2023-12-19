@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useBuyContext } from "../../context/BuyContext"
 import { BuyProduct } from "./BuyProduct/BuyProduct"
 
 
 export const Buy = () => {
 
-  const {products, totalPrice}=useBuyContext();
-  
-  const [buy,setBuy]=useState([]);
-  useEffect(()=>{
-setBuy(products)
-  },[products])
+  const { products, totalPrice } = useBuyContext();
+
+  const [buy, setBuy] = useState([]);
+  useEffect(() => {
+    setBuy(products)
+  }, [products])
   return (
 
     // <section className="shop-section">
@@ -42,14 +43,22 @@ setBuy(products)
     <section >
       <div className="wrapper">
 
-     
+
         <h2><svg xmlns="https://rainsystems.eu/wp-content/uploads/Logo_Rain_Systems-mini.png" className="site__logo" width="56" height="84" viewBox="77.7 214.9 274.7 412"><defs><linearGradient id="a" x1="0%" y1="0%" y2="0%"><stop offset="0%" stopColor="#8ceabb" /><stop offset="100%" stopColor="white" /></linearGradient></defs><path fill="url(#a)" d="M215 214.9c-83.6 123.5-137.3 200.8-137.3 275.9 0 75.2 61.4 136.1 137.3 136.1s137.3-60.9 137.3-136.1c0-75.1-53.7-152.4-137.3-275.9z" /></svg>
           Shoping Bag</h2>
-       
+
         <hr />
 
-        {buy.map(x=><BuyProduct key={x._id} {...x}/>)}
-    
+        {buy.map(x => <BuyProduct key={x._id} {...x} />)}
+
+        {buy.length < 1 && (
+          <>
+            <div className='details'>
+              <p className="buy_size" ><i className="fa-solid fa-cart-shopping fa-5x "><i className='empty'>0</i></i></p>
+            </div>
+          </>
+        )}
+
         <hr />
         <div >
 
